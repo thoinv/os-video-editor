@@ -1,5 +1,7 @@
 package com.example.videoeditor.feature.recent;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -23,6 +25,8 @@ public class RecentTabAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         RecentContentFragment fragment = new RecentContentFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
         fragments.add(fragment);
         return fragment;
     }
