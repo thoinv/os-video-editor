@@ -39,8 +39,11 @@ public abstract class BaseFragmentBinding<T extends ViewBinding> extends Fragmen
             e.printStackTrace();
         }
         this.initViews(savedInstanceState);
+        this.bindViewClickEvent();
         return this.binding.getRoot();
     }
+
+    protected abstract void bindViewClickEvent();
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

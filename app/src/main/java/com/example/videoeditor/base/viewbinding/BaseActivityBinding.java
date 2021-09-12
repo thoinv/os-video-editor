@@ -35,7 +35,10 @@ public abstract class BaseActivityBinding<T extends ViewBinding> extends AppComp
             DeviceUtil.changeStatusBarColor(this, statusColor, false);
         }
         this.initViews(savedInstanceState);
+        this.bindViewClickEvent();
     }
+
+    protected abstract void bindViewClickEvent();
 
     protected int getStatusColor() {
         return -1;

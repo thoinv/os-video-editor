@@ -1,20 +1,29 @@
-package com.example.videoeditor;
+package com.example.videoeditor.feature.main;
 
 import android.os.Bundle;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.viewbinding.ViewBinding;
 
+import com.example.videoeditor.R;
 import com.example.videoeditor.base.IAdapterCallback;
 import com.example.videoeditor.base.viewbinding.BaseActivityBinding;
 import com.example.videoeditor.databinding.ActivityMainBinding;
 import com.example.videoeditor.entities.NewTheme;
 import com.example.videoeditor.feature.main.NewThemeAdapter;
+import com.example.videoeditor.feature.recent.RecentActivity;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends BaseActivityBinding<ActivityMainBinding> {
+
+    @Override
+    protected void bindViewClickEvent() {
+        binding.btEdit.setOnClickListener(v -> {
+            RecentActivity.open(this);
+        });
+    }
 
     @Override
     protected ViewBinding binding() {

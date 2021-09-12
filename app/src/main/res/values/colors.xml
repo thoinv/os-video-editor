@@ -10,4 +10,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="black_3F424C">#3F424C</color>
     <color name="back_585A5E">#585A5E</color>
+    <color name="back_020202">#020202</color>
+    <color name="orange">#F9764D</color>
 </resources>
