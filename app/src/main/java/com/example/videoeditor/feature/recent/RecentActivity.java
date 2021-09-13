@@ -6,13 +6,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import androidx.lifecycle.Observer;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.videoeditor.R;
 import com.example.videoeditor.base.viewbinding.BaseActivityBinding;
 import com.example.videoeditor.databinding.ActivityRecentBinding;
+import com.example.videoeditor.entities.Media;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.util.Arrays;
 import java.util.List;
@@ -52,10 +55,24 @@ public class RecentActivity extends BaseActivityBinding<ActivityRecentBinding> {
                     tab.select();
                 }
         ).attach();
+
+        RecentCacheData.instance().getSelectedItemsObservable(this, new Observer<List<Media>>() {
+            @Override
+            public void onChanged(List<Media> media) {
+
+            }
+        });
     }
 
     @Override
     protected ViewBinding binding() {
         return ActivityRecentBinding.inflate(getLayoutInflater());
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        RecentCacheData.instance().clear();
+
     }
 }

@@ -18,7 +18,6 @@ import java.util.List;
 
 class RecentContentAdapter extends RecyclerView.Adapter<RecentContentAdapter.ItemViewHolder> {
     private List<Media> mediaList;
-    private final List<Media> selectedItems = new LinkedList<>();
     private IAdapterCallback<Media> callback;
 
     public RecentContentAdapter setCallback(IAdapterCallback<Media> callback) {
@@ -39,7 +38,7 @@ class RecentContentAdapter extends RecyclerView.Adapter<RecentContentAdapter.Ite
                 callback.onItemClicked(media, position1);
             }
             notifyItemChanged(position);
-        }, selectedItems);
+        });
     }
 
     public void setData(List<Media> mediaList) {
@@ -51,25 +50,17 @@ class RecentContentAdapter extends RecyclerView.Adapter<RecentContentAdapter.Ite
         return mediaList == null ? 0 : mediaList.size();
     }
 
-    public List<Media> getSelectedItems() {
-        return selectedItems;
-    }
-
     static class ItemViewHolder extends BaseViewHolderBinding<ItemRecentContentBinding> {
 
         public ItemViewHolder(ItemRecentContentBinding binding) {
             super(binding);
         }
 
-        public void bind(Media media, IAdapterCallback<Media> callback, List<Media> selectedItems) {
+        public void bind(Media media, IAdapterCallback<Media> callback) {
             Glide.with(getContext()).load(media.getMediaResourceId()).into(binding.ivMedia);
-            binding.ivChecked.setVisibility(selectedItems.contains(media) ? View.VISIBLE : View.GONE);
+            binding.ivChecked.setVisibility(RecentCacheData.instance().containValue(media) ? View.VISIBLE : View.GONE);
             itemView.setOnClickListener(v -> {
-                if (selectedItems.contains(media)) {
-                    selectedItems.remove(media);
-                } else {
-                    selectedItems.add(media);
-                }
+                RecentCacheData.instance().updateItem(media);
                 if (callback != null) {
                     callback.onItemClicked(media, getAdapterPosition());
                 }
