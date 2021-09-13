@@ -1,11 +1,12 @@
 package com.example.videoeditor.feature.recent;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewpager2.widget.ViewPager2;
@@ -15,7 +16,6 @@ import com.example.videoeditor.base.viewbinding.BaseActivityBinding;
 import com.example.videoeditor.databinding.ActivityRecentBinding;
 import com.example.videoeditor.entities.Media;
 import com.google.android.material.tabs.TabLayoutMediator;
-import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.util.Arrays;
 import java.util.List;
@@ -59,9 +59,31 @@ public class RecentActivity extends BaseActivityBinding<ActivityRecentBinding> {
         RecentCacheData.instance().getSelectedItemsObservable(this, new Observer<List<Media>>() {
             @Override
             public void onChanged(List<Media> media) {
-
+                if (media.isEmpty()) {
+                    onHideSelectedItems();
+                    return;
+                }
+                onShowSelectedItems();
             }
         });
+    }
+
+    private void onHideSelectedItems() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().remove(recentSelectedFragment).commitAllowingStateLoss();
+    }
+
+    private final RecentSelectedFragment recentSelectedFragment = new RecentSelectedFragment();
+
+    private void onShowSelectedItems() {
+        if (recentSelectedFragment.isShown()) {
+            return;
+        }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .add(R.id.fragment_container, recentSelectedFragment)
+                .show(recentSelectedFragment)
+                .commitAllowingStateLoss();
     }
 
     @Override

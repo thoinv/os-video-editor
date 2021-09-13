@@ -14,4 +14,6 @@
     <string name="video">Video</string>
     <string name="images">Ảnh</string>
     <string name="all">Tất cả</string>
+    <string name="recent_show_more_desc">Giữ và kéo để sắp xếp lại</string>
+    <string name="recent_continue">Kế tiếp (%d)</string>
 </resources>

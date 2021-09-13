@@ -58,6 +58,10 @@ public abstract class BaseFragmentBinding<T extends ViewBinding> extends Fragmen
 
     protected abstract void initViews(Bundle bundle);
 
+    public boolean isShown() {
+        return isAdded() && isVisible() && getUserVisibleHint();
+    }
+
     protected abstract ViewBinding binding();
 
     public void finishActivity() {
