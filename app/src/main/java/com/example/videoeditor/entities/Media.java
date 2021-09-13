@@ -1,7 +1,5 @@
 package com.example.videoeditor.entities;
 
-import android.media.MediaPlayer;
-
 import androidx.annotation.DrawableRes;
 
 import java.io.Serializable;

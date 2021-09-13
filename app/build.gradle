@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 plugins {
     id 'com.android.application'
 }
@@ -9,8 +11,8 @@ android {
         applicationId "com.example.videoeditor"
         minSdk 21
         targetSdk 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 100
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -28,6 +30,79 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    flavorDimensions "dimen"
+    productFlavors {
+        vDevelop_ {
+            buildConfigField "long", "BUILD_DATE", System.currentTimeMillis() + "L"
+            buildConfigField "boolean", "DEBUG_MODE", "true"
+            buildConfigField "boolean", "ENABLE_FORCE_UPDATE", "false"
+            dimension "dimen"
+            versionName "develop"
+            resValue("bool", "FIREBASE_ANALYTICS_DEACTIVATED", "true")
+        }
+
+        vTest_ {
+            buildConfigField "long", "BUILD_DATE", System.currentTimeMillis() + "L"
+            buildConfigField "boolean", "ENABLE_FORCE_UPDATE", "false"
+            buildConfigField "boolean", "DEBUG_MODE", "true"
+            dimension "dimen"
+            resValue("bool", "FIREBASE_ANALYTICS_DEACTIVATED", "true")
+            versionName "test"
+        }
+        vOfficial_ {
+            resValue("bool", "FIREBASE_ANALYTICS_DEACTIVATED", "false")
+            buildConfigField "boolean", "DEBUG_MODE", "false"
+            buildConfigField "boolean", "ENABLE_FORCE_UPDATE", "false"
+            dimension "dimen"
+        }
+    }
+
+    variantFilter { variant ->
+        def fvName = variant.flavors*.name
+        def buildType = variant.buildType.name
+
+        if ((buildType == "release" && fvName.contains("v_Develop_")) ||
+                (buildType == "debug" && fvName.contains("v_Test_")) ||
+                (buildType == "debug" && fvName.contains("v_Official_"))) {
+            setIgnore(true)
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = getOutputName(variant)
+        }
+    }
+
+}
+
+private String getOutputName(variant) {
+    def versionName = variant.versionName
+    if (!versionName == "develop" && versionName != "test") {
+        versionName = "v" + versionName
+    }
+    def format = "yyyyMMdd_HHmm"
+    def time = new SimpleDateFormat(format).format(new Date())
+    def buildType = variant.buildType.name
+    return "video_editor_" + versionName + "_" + buildType + "_" + time + ".apk"
 }
 
 dependencies {
