@@ -2,6 +2,7 @@ package com.example.videoeditor.feature.recent.selected;
 
 import android.annotation.SuppressLint;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -12,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.example.videoeditor.base.viewbinding.BaseViewHolderBinding;
 import com.example.videoeditor.databinding.ItemRecentSelectedBinding;
 import com.example.videoeditor.entities.Media;
+import com.example.videoeditor.entities.MediaVideo;
 import com.example.videoeditor.feature.recent.RecentCacheData;
 
 import java.util.List;
@@ -66,6 +68,9 @@ public class RecentSelectedAdapter extends RecyclerView.Adapter<RecentSelectedAd
                 }
             });
 
+            binding.ivIcMediaType.setImageResource(media.getMediaTypeIconResource());
+            // FIXME: 9/20/2021 change default value
+            binding.tvVideoFrameTime.setText("00:02,2");
         }
     }
 }

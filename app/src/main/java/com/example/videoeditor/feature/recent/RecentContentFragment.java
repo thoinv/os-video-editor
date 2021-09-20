@@ -12,6 +12,8 @@ import com.example.videoeditor.base.IAdapterCallback;
 import com.example.videoeditor.base.viewbinding.BaseFragmentBinding;
 import com.example.videoeditor.databinding.FragmentRecentContentBinding;
 import com.example.videoeditor.entities.Media;
+import com.example.videoeditor.entities.MediaImage;
+import com.example.videoeditor.entities.MediaVideo;
 
 import java.util.Arrays;
 import java.util.List;
@@ -34,10 +36,10 @@ public class RecentContentFragment extends BaseFragmentBinding<FragmentRecentCon
                 });
         binding.rvMedia.setAdapter(recentContentAdapter);
         List<Media> mediaList = Arrays.asList(
-                Media.createObject(R.drawable.ic_fx),
-                Media.createObject(R.drawable.ic_effect),
-                Media.createObject(R.drawable.ic_sticker),
-                Media.createObject(R.drawable.ic_text)
+                MediaImage.createObject(R.drawable.ic_fx),
+                MediaImage.createObject(R.drawable.ic_effect),
+                MediaVideo.createObject(R.drawable.ic_sticker),
+                MediaImage.createObject(R.drawable.ic_text)
         );
         recentContentAdapter.setData(mediaList);
 
