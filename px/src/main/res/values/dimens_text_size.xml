@@ -20,4 +20,6 @@
     <dimen name="ds_sp56">61.6sp</dimen>
     <dimen name="ds_sp86">94.6sp</dimen>
     <dimen name="ds_sp11">12.1sp</dimen>
+    <dimen name="ds_sp8">8.8sp</dimen>
+
 </resources>

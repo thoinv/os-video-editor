@@ -11,6 +11,7 @@ import androidx.viewbinding.ViewBinding;
 import com.example.videoeditor.R;
 import com.example.videoeditor.base.viewbinding.BaseActivityBinding;
 import com.example.videoeditor.databinding.ActivityEditBinding;
+import com.example.videoeditor.feature.edit.editdetail.EditDetailActivity;
 
 public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
 
@@ -25,7 +26,7 @@ public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
         View.OnClickListener bottomMenuOnClickListener = v -> {
             int id = v.getId();
             if (id == R.id.bottom_menu_edit) {
-                onBottomMenuEditClicked();
+                EditDetailActivity.open(this);;
 
             } else if (id == R.id.bottom_menu_effect) {
                 onBottomMenuEffectClicked();
@@ -59,11 +60,6 @@ public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
 
     private void onBottomMenuEffectClicked() {
         Toast.makeText(this, "onBottomMenuEffectClicked", Toast.LENGTH_SHORT).show();
-
-    }
-
-    private void onBottomMenuEditClicked() {
-        Toast.makeText(this, "onBottomMenuEditClicked", Toast.LENGTH_SHORT).show();
 
     }
 

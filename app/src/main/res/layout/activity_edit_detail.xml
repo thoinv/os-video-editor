@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/back_020202">
@@ -14,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/px12"
+        android:background="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/bt_play"
         app:layout_constraintTop_toBottomOf="@+id/layout_toolbar" />
 
@@ -31,7 +33,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/px300"
-        android:background="#141617"
+        android:background="@color/black_141617"
         app:layout_constraintBottom_toTopOf="@+id/bottom_menu_line">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -40,7 +42,7 @@
         android:id="@+id/bottom_menu_line"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="#3A3A3A"
+        android:background="@color/back_3A3A3A"
         app:layout_constraintBottom_toTopOf="@+id/view_bottom" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,7 +52,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/bottom_menu_edit"
+            android:id="@+id/bottom_menu_transition"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="?selectableItemBackgroundBorderless"
@@ -58,9 +60,9 @@
             android:orientation="vertical"
             android:paddingTop="@dimen/px6"
             android:paddingBottom="@dimen/px6"
-            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_theme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_duration"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -68,47 +70,47 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/editor_vector_edit" />
+                app:srcCompat="@drawable/edit_detail_vector_transition" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/px4"
-                android:text="@string/edit"
-                android:textColor="@color/gray_bottom_menu"
-                android:textSize="@dimen/ds_sp11" />
+                android:text="@string/transition"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ds_sp8" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/bottom_menu_theme"
+            android:id="@+id/bottom_menu_duration"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="?selectableItemBackgroundBorderless"
             android:gravity="center"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_effect"
+            app:layout_constraintBottom_toBottomOf="@+id/bottom_menu_transition"
+            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_filter"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/bottom_menu_edit"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/bottom_menu_transition"
+            app:layout_constraintTop_toTopOf="@+id/bottom_menu_transition">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/editor_vector_theme" />
+                app:srcCompat="@drawable/edit_detail_vector_duration" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/px4"
-                android:text="@string/theme"
-                android:textColor="@color/gray_bottom_menu"
-                android:textSize="@dimen/ds_sp11" />
+                android:text="@string/duration"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ds_sp8" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/bottom_menu_effect"
+            android:id="@+id/bottom_menu_filter"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="?selectableItemBackgroundBorderless"
@@ -117,22 +119,22 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/bottom_menu_music"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/bottom_menu_theme"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/bottom_menu_duration"
+            app:layout_constraintTop_toTopOf="@+id/bottom_menu_transition">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/editor_vector_effect" />
+                app:srcCompat="@drawable/edit_detail_vector_filter" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/px4"
-                android:text="@string/effect"
-                android:textColor="@color/gray_bottom_menu"
-                android:textSize="@dimen/ds_sp11" />
+                android:text="@string/filter"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ds_sp8" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -142,26 +144,81 @@
             android:background="?selectableItemBackgroundBorderless"
             android:gravity="center"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="@+id/bottom_menu_edit"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_text"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/bottom_menu_effect"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toEndOf="@+id/bottom_menu_filter"
+            app:layout_constraintTop_toTopOf="@+id/bottom_menu_transition">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/editor_vector_music" />
+                app:srcCompat="@drawable/edit_detail_vector_sticker" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/px4"
                 android:text="@string/music"
-                android:textColor="@color/gray_bottom_menu"
-                android:textSize="@dimen/ds_sp11" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/ds_sp8" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/bottom_menu_text"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_zoom"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/bottom_menu_music"
+            app:layout_constraintTop_toTopOf="@+id/bottom_menu_transition">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/edit_detail_vector_text" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px4"
+                android:text="@string/text"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ds_sp8" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/bottom_menu_zoom"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/bottom_menu_text"
+            app:layout_constraintTop_toTopOf="@+id/bottom_menu_transition">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/edit_detail_vector_zoom" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px4"
+                android:text="@string/zoom"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ds_sp8" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
