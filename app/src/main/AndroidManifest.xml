@@ -33,9 +33,14 @@
             android:name=".feature.edit.EditActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-        
+
         <activity
             android:name=".feature.edit.editdetail.EditDetailActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.edit.editdetail.EditTransitionActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
     </application>

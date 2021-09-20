@@ -30,7 +30,7 @@ public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBi
                 onButtonMenuMusicClicked();
 
             } else if (id == R.id.bottom_menu_transition) {
-                onButtonMenuTransitionClicked();
+                EditTransitionActivity.open(this);
 
             } else if (id == R.id.bottom_menu_zoom) {
                 onButtonMenuZoomClicked();
@@ -58,10 +58,6 @@ public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBi
     }
 
     private void onButtonMenuMusicClicked() {
-
-    }
-
-    private void onButtonMenuTransitionClicked() {
 
     }
 
