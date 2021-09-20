@@ -23,6 +23,9 @@ public class MainActivity extends BaseActivityBinding<ActivityMainBinding> {
         binding.btEdit.setOnClickListener(v -> {
             RecentActivity.open(this);
         });
+        binding.btTrimVideo.setOnClickListener(v -> {
+            RecentActivity.open(this);
+        });
     }
 
     @Override
