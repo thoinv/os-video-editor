@@ -16,4 +16,8 @@
     <string name="all">Tất cả</string>
     <string name="recent_show_more_desc">Giữ và kéo để sắp xếp lại</string>
     <string name="recent_continue">Kế tiếp (%d)</string>
+    <string name="edit">Edit</string>
+    <string name="theme">Theme</string>
+    <string name="effect">Effect</string>
+    <string name="music">Music</string>
 </resources>
