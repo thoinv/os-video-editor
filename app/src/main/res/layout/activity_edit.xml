@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/back_020202">
+    android:background="@color/primary">
 
     <include
         android:id="@+id/layout_toolbar"
@@ -31,7 +31,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/px300"
-        android:background="#141617"
+        android:background="@color/black_141617"
         app:layout_constraintBottom_toTopOf="@+id/bottom_menu_line">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -40,13 +40,14 @@
         android:id="@+id/bottom_menu_line"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="#3A3A3A"
+        android:background="@color/back_3A3A3A"
         app:layout_constraintBottom_toTopOf="@+id/view_bottom" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/view_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/black_141617"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.appcompat.widget.LinearLayoutCompat

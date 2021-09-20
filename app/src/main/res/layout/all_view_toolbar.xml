@@ -6,7 +6,7 @@
     android:id="@+id/layout_toolbar"
     android:layout_width="match_parent"
     android:layout_height="?actionBarSize"
-    android:background="@color/back_020202"
+    android:background="@color/primary"
     app:layout_constraintTop_toTopOf="parent">
 
     <androidx.appcompat.widget.AppCompatImageView

@@ -14,6 +14,8 @@ import com.example.videoeditor.databinding.FragmentRecentContentBinding;
 import com.example.videoeditor.entities.Media;
 import com.example.videoeditor.entities.MediaImage;
 import com.example.videoeditor.entities.MediaVideo;
+import com.example.videoeditor.util.GridSpacingItemDecoration;
+import com.example.videoeditor.util.Util;
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,10 +33,10 @@ public class RecentContentFragment extends BaseFragmentBinding<FragmentRecentCon
                 .setCallback(new IAdapterCallback<Media>() {
                     @Override
                     public void onItemClicked(Media media, int position) {
-                        Toast.makeText(getContext(), "Select item " + position, Toast.LENGTH_SHORT).show();
                     }
                 });
         binding.rvMedia.setAdapter(recentContentAdapter);
+        binding.rvMedia.addItemDecoration(new GridSpacingItemDecoration(4, Util.dimenToPixel(getContext(), R.dimen.px8), false));
         List<Media> mediaList = Arrays.asList(
                 MediaImage.createObject(R.drawable.ic_fx),
                 MediaImage.createObject(R.drawable.ic_effect),

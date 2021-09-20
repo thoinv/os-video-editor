@@ -46,6 +46,11 @@ public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBi
         binding.bottomMenuTransition.setOnClickListener(onButtonClicked);
         binding.bottomMenuZoom.setOnClickListener(onButtonClicked);
         binding.bottomMenuText.setOnClickListener(onButtonClicked);
+
+        binding.layoutToolbar.btToolbarBack.setOnClickListener(v -> {
+            finish();
+        });
+        binding.layoutToolbar.tvToolbarTitle.setText(R.string.edit);
     }
 
     private void onButtonMenuFilterClicked() {

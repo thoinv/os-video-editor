@@ -13,12 +13,8 @@ public class Media implements Serializable {
 
     }
 
-    Media(int mediaResourceId) {
+    protected Media(int mediaResourceId) {
         this.mediaResourceId = mediaResourceId;
-    }
-
-    public static Media createObject(@DrawableRes int mediaResourceId) {
-        return new Media(mediaResourceId);
     }
 
     public int getMediaResourceId() {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/back_020202">
+    android:background="@color/primary">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_toolbar"
@@ -63,7 +63,7 @@
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/back_020202"
+        android:background="@color/primary"
         app:layout_collapseMode="none"
         app:layout_constraintTop_toBottomOf="@+id/layout_toolbar"
         app:tabIndicator="@color/orange"
