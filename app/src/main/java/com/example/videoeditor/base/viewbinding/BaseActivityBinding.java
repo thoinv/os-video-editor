@@ -1,12 +1,10 @@
 package com.example.videoeditor.base.viewbinding;
 
 import android.os.Bundle;
-import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewbinding.ViewBinding;
-
 
 import com.example.videoeditor.util.DeviceUtil;
 

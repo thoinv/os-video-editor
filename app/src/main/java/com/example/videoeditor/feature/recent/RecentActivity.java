@@ -1,11 +1,10 @@
 package com.example.videoeditor.feature.recent;
 
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
 import androidx.viewbinding.ViewBinding;
@@ -15,6 +14,7 @@ import com.example.videoeditor.R;
 import com.example.videoeditor.base.viewbinding.BaseActivityBinding;
 import com.example.videoeditor.databinding.ActivityRecentBinding;
 import com.example.videoeditor.entities.Media;
+import com.example.videoeditor.feature.recent.selected.RecentSelectedFragment;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.Arrays;
@@ -95,6 +95,5 @@ public class RecentActivity extends BaseActivityBinding<ActivityRecentBinding> {
     protected void onDestroy() {
         super.onDestroy();
         RecentCacheData.instance().clear();
-
     }
 }

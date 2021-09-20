@@ -11,7 +11,7 @@ import com.example.videoeditor.entities.Media;
 import java.util.ArrayList;
 import java.util.List;
 
-class RecentCacheData {
+public class RecentCacheData {
     private static RecentCacheData instance;
     private final MutableLiveData<List<Media>> liveDataSelectItems = new MutableLiveData<>();
 
@@ -54,6 +54,19 @@ class RecentCacheData {
     }
 
     public void clear() {
+        instance = null;
         liveDataSelectItems.setValue(null);
+    }
+
+    public void remove(Media media) {
+        if (!containValue(media)) {
+            return;
+        }
+        List<Media> mediaList = liveDataSelectItems.getValue();
+        if (mediaList != null) {
+            mediaList.remove(media);
+            liveDataSelectItems.setValue(mediaList);
+            liveDataSelectItems.postValue(mediaList);
+        }
     }
 }

@@ -3,6 +3,7 @@ package com.example.videoeditor.feature.recent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.viewbinding.ViewBinding;
 
@@ -39,6 +40,13 @@ public class RecentContentFragment extends BaseFragmentBinding<FragmentRecentCon
                 Media.createObject(R.drawable.ic_text)
         );
         recentContentAdapter.setData(mediaList);
+
+        RecentCacheData.instance().getSelectedItemsObservable(getActivity(), new Observer<List<Media>>() {
+            @Override
+            public void onChanged(List<Media> media) {
+                recentContentAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     @Override

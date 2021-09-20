@@ -39,16 +39,20 @@
             android:id="@+id/rv_select_files"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingLeft="@dimen/px12"
+            android:paddingRight="@dimen/px12"
+            android:paddingBottom="@dimen/px70"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            tools:listitem="@layout/item_recent_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:spanCount="4" />
+            app:spanCount="4"
+            tools:listitem="@layout/item_recent_content" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/bt_continue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/px16"
+            android:layout_marginBottom="@dimen/px12"
             android:background="@drawable/selector_shape_orange_round_corner"
             android:paddingLeft="@dimen/px28"
             android:paddingTop="@dimen/px10"
