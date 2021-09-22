@@ -25,4 +25,6 @@
     <string name="filter">Filter</string>
     <string name="text">Text</string>
     <string name="zoom">Zoom</string>
+    <string name="export">Export</string>
+    <string name="export_info">Duration: %s\nEstimated Size: %s\nResolution: %s</string>
 </resources>
