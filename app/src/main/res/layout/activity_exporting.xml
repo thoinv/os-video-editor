@@ -1,6 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/primary">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/label_exporting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px60"
+        android:text="@string/exporting_your_video"
+        android:textColor="@color/white"
+        android:textSize="@dimen/ds_sp20"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_animation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px20"
+        app:layout_constraintTop_toBottomOf="@+id/label_exporting">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_animation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px20"
+            android:layout_marginRight="@dimen/px20"
+            android:adjustViewBounds="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/exporting_ic_animation_bg" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="@dimen/px160"
+            android:layout_height="@dimen/px160"
+            android:background="@drawable/exporting_shape_center_circle"
+            app:layout_constraintBottom_toBottomOf="@id/iv_animation"
+            app:layout_constraintLeft_toLeftOf="@+id/iv_animation"
+            app:layout_constraintRight_toRightOf="@+id/iv_animation"
+            app:layout_constraintTop_toTopOf="@id/iv_animation" />
+
+        <ProgressBar
+            android:id="@+id/pg_loading"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/orange"
+            android:indeterminateTintMode="src_atop"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/view" />
+
+        <com.example.videoeditor.view.AnimationTextView
+            android:id="@+id/tv_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/ds_sp28"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/view"
+            tools:text="90%" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/bt_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_shape_orange_round_gray"
+        android:paddingLeft="@dimen/px42"
+        android:paddingTop="@dimen/px8"
+        android:paddingRight="@dimen/px42"
+        android:paddingBottom="@dimen/px8"
+        android:text="@string/cancel"
+        android:textColor="@color/white"
+        android:textSize="@dimen/ds_sp18"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_animation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

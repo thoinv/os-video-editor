@@ -27,4 +27,6 @@
     <string name="zoom">Zoom</string>
     <string name="export">Export</string>
     <string name="export_info">Duration: %s\nEstimated Size: %s\nResolution: %s</string>
+    <string name="exporting_your_video">exporting your video</string>
+    <string name="cancel">Hủy</string>
 </resources>
