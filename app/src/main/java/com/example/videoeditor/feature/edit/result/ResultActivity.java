@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.viewbinding.ViewBinding;
 
+import com.example.videoeditor.R;
 import com.example.videoeditor.base.viewbinding.BaseActivityBinding;
 import com.example.videoeditor.databinding.ActivityResultBinding;
 
@@ -16,7 +17,7 @@ public class ResultActivity extends BaseActivityBinding<ActivityResultBinding> {
 
     @Override
     protected void bindViewClickEvent() {
-
+        binding.layoutToolbar.btToolbarBack.setOnClickListener(v -> finish());
     }
 
     @Override
@@ -26,6 +27,6 @@ public class ResultActivity extends BaseActivityBinding<ActivityResultBinding> {
 
     @Override
     protected void initViews(Bundle bundle) {
-
+        binding.layoutToolbar.tvToolbarTitle.setText(R.string.share);
     }
 }
