@@ -3,11 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:background="@color/primary">
 
-    <include
-        android:id="@+id/layout_toolbar"
-        layout="@layout/all_view_toolbar" />
+    <FrameLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/layout_toolbar"
+            layout="@layout/all_view_toolbar" />
+
+        <include
+            android:id="@+id/layout_toolbar_export"
+            layout="@layout/all_view_toolbar_export"
+            android:visibility="gone" />
+    </FrameLayout>
+
 
     <View
         android:id="@+id/vv_preview"
@@ -15,7 +29,7 @@
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/px12"
         app:layout_constraintBottom_toTopOf="@+id/bt_play"
-        app:layout_constraintTop_toBottomOf="@+id/layout_toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/bt_play"
@@ -91,7 +105,8 @@
             app:layout_constraintEnd_toStartOf="@+id/bottom_menu_effect"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/bottom_menu_edit"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
@@ -122,12 +137,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_effect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 app:srcCompat="@drawable/editor_vector_effect" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_effect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/px4"
@@ -151,12 +168,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_music"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 app:srcCompat="@drawable/editor_vector_music" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_music"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/px4"

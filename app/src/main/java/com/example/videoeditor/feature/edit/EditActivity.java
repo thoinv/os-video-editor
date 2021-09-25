@@ -12,6 +12,8 @@ import com.example.videoeditor.R;
 import com.example.videoeditor.base.viewbinding.BaseActivityBinding;
 import com.example.videoeditor.databinding.ActivityEditBinding;
 import com.example.videoeditor.feature.edit.editdetail.EditDetailActivity;
+import com.example.videoeditor.feature.edit.export.ExportActivity;
+import com.example.videoeditor.util.Util;
 
 public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
 
@@ -24,9 +26,13 @@ public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
         binding.layoutToolbar.btToolbarBack.setOnClickListener(v -> finish());
         binding.btPlay.setOnClickListener(v -> onButtonPlayClicked());
         View.OnClickListener bottomMenuOnClickListener = v -> {
+            Util.changeFilterButtonColor(binding.ivEffect, binding.tvEffect, R.color.gray_bottom_menu);
+            Util.changeFilterButtonColor(binding.ivMusic, binding.tvMusic, R.color.gray_bottom_menu);
+            binding.layoutToolbarExport.getRoot().setVisibility(View.GONE);
+
             int id = v.getId();
             if (id == R.id.bottom_menu_edit) {
-                EditDetailActivity.open(this);;
+                EditDetailActivity.open(this);
 
             } else if (id == R.id.bottom_menu_effect) {
                 onBottomMenuEffectClicked();
@@ -55,12 +61,17 @@ public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
 
     private void onBottomMenuMusicClicked() {
         Toast.makeText(this, "onBottomMenuMusicClicked", Toast.LENGTH_SHORT).show();
-
+        Util.changeFilterButtonColor(binding.ivMusic, binding.tvMusic, R.color.orange);
+        binding.layoutToolbarExport.getRoot().setVisibility(View.VISIBLE);
+        binding.layoutToolbarExport.tvToolbarTitle.setText(R.string.music);
+        binding.layoutToolbarExport.btExport.setOnClickListener(v -> {
+            ExportActivity.open(this);
+        });
     }
 
     private void onBottomMenuEffectClicked() {
         Toast.makeText(this, "onBottomMenuEffectClicked", Toast.LENGTH_SHORT).show();
-
+        Util.changeFilterButtonColor(binding.ivEffect, binding.tvEffect, R.color.orange);
     }
 
     @Override

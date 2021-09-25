@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.ColorRes;
 import androidx.core.content.ContextCompat;
@@ -12,6 +14,7 @@ import androidx.viewbinding.ViewBinding;
 import com.example.videoeditor.R;
 import com.example.videoeditor.base.viewbinding.BaseActivityBinding;
 import com.example.videoeditor.databinding.ActivityEditDetailBinding;
+import com.example.videoeditor.util.Util;
 
 public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBinding> {
 
@@ -23,7 +26,7 @@ public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBi
     protected void bindViewClickEvent() {
         View.OnClickListener onButtonClicked = v -> {
             int id = v.getId();
-            changeFilterButtonColor(R.color.white);
+            Util.changeFilterButtonColor(binding.ivFilter, binding.tvFilter, R.color.white);
 
             if (id == R.id.bottom_menu_duration) {
                 onButtonMenuDurationClicked();
@@ -58,12 +61,7 @@ public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBi
     }
 
     private void onButtonMenuFilterClicked() {
-        changeFilterButtonColor(R.color.orange);
-    }
-
-    private void changeFilterButtonColor(@ColorRes int color) {
-        binding.ivFilter.setColorFilter(ContextCompat.getColor(this, color), android.graphics.PorterDuff.Mode.SRC_IN);
-        binding.tvFilter.setTextColor(ContextCompat.getColor(this, color));
+        Util.changeFilterButtonColor(binding.ivFilter, binding.tvFilter, R.color.orange);
     }
 
     private void onButtonMenuMusicClicked() {

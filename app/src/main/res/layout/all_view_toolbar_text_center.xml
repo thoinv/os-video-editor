@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:textSize="@dimen/ds_sp18"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/bt_toolbar_back"

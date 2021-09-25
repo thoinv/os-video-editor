@@ -8,7 +8,7 @@
 
     <include
         android:id="@+id/layout_toolbar"
-        layout="@layout/view_toolbar_cancel_save" />
+        layout="@layout/all_view_toolbar_cancel_save" />
 
     <View
         android:id="@+id/vv_preview"
