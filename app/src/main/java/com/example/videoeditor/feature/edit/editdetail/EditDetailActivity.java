@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.ColorRes;
+import androidx.core.content.ContextCompat;
 import androidx.viewbinding.ViewBinding;
 
 import com.example.videoeditor.R;
@@ -21,6 +23,8 @@ public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBi
     protected void bindViewClickEvent() {
         View.OnClickListener onButtonClicked = v -> {
             int id = v.getId();
+            changeFilterButtonColor(R.color.white);
+
             if (id == R.id.bottom_menu_duration) {
                 onButtonMenuDurationClicked();
             } else if (id == R.id.bottom_menu_filter) {
@@ -54,7 +58,12 @@ public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBi
     }
 
     private void onButtonMenuFilterClicked() {
+        changeFilterButtonColor(R.color.orange);
+    }
 
+    private void changeFilterButtonColor(@ColorRes int color) {
+        binding.ivFilter.setColorFilter(ContextCompat.getColor(this, color), android.graphics.PorterDuff.Mode.SRC_IN);
+        binding.tvFilter.setTextColor(ContextCompat.getColor(this, color));
     }
 
     private void onButtonMenuMusicClicked() {
