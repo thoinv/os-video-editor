@@ -16,8 +16,8 @@ public class EditTransitionActivity extends BaseActivityBinding<ActivityEditTran
 
     @Override
     protected void bindViewClickEvent() {
-        binding.btCancel.setOnClickListener(v -> finish());
-        binding.btSave.setOnClickListener(v -> {
+        binding.layoutToolbar.btCancel.setOnClickListener(v -> finish());
+        binding.layoutToolbar.btSave.setOnClickListener(v -> {
             // TODO: 9/20/2021 save transition config
             finish();
         });

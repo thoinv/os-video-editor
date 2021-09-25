@@ -6,4 +6,10 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">@dimen/ds_sp16</item>
     </style>
+
+    <style name="AppSeekBar" parent="Widget.AppCompat.SeekBar">
+        <item name="android:progressBackgroundTint">@color/white</item>
+        <item name="android:progressTint">#F9764D</item>
+        <item name="android:thumbTint">#F9764D</item>
+    </style>
 </resources>

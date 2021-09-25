@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary">
+
+    <include
+        android:id="@+id/layout_toolbar"
+        layout="@layout/view_toolbar_cancel_save" />
+
+    <View
+        android:id="@+id/vv_preview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/px12"
+        app:layout_constraintBottom_toTopOf="@+id/bt_play"
+        app:layout_constraintTop_toBottomOf="@+id/layout_toolbar" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/bt_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/px12"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/all_vector_play_video" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px300"
+        android:background="@color/black_141617"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/hlv_trans"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px110"
+            android:background="#2C2E33"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ds_sp17"
+                app:layout_constraintBottom_toTopOf="@+id/tv_duration_start"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Duration" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_duration_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/px12"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ds_sp12"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_duration"
+                tools:text="0.1s" />
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/sb_duration"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/px14"
+                android:layout_marginEnd="@dimen/px14"
+                style="@style/AppSeekBar"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_duration_start"
+                app:layout_constraintLeft_toRightOf="@+id/tv_duration_start"
+                app:layout_constraintRight_toLeftOf="@+id/tv_duration_end"
+                app:layout_constraintTop_toTopOf="@id/tv_duration_start" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_duration_end"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/px12"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ds_sp12"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_duration_start"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_duration_start"
+                tools:text="0.1s" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/choose_storyboard_view_trans"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentBottom="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hlv_trans" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

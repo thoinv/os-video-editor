@@ -70,7 +70,7 @@ public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBi
     }
 
     private void onButtonMenuDurationClicked() {
-
+        EditDurationActivity.open(this);
     }
 
     @Override
