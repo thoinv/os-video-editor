@@ -37,11 +37,14 @@
             app:srcCompat="@drawable/all_vector_play_video" />
 
         <FrameLayout
+            android:id="@+id/view_focus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/px20"
             android:layout_marginRight="@dimen/px20"
             android:background="@color/primary"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -50,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/shape_edittext_bg"
-                android:paddingLeft="@dimen/px12"
+                android:paddingStart="@dimen/px12"
                 android:paddingTop="@dimen/px8"
                 android:paddingEnd="@dimen/px12"
                 android:paddingBottom="@dimen/px8"
@@ -70,193 +73,209 @@
         android:background="@color/black_141617"
         app:layout_constraintBottom_toBottomOf="parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <View
-        android:id="@+id/bottom_menu_line"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/black_3A3A3A"
-        app:layout_constraintBottom_toTopOf="@+id/view_bottom" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/view_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/black_141617"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout">
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/menu_keyboard"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/view_bottom"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?selectableItemBackgroundBorderless"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="@dimen/px6"
-            android:paddingBottom="@dimen/px6"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_duration"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:background="@color/black_141617"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/px18"
-                android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_text_keyboard" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/menu_keyboard"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/px4"
-                android:text="@string/keyboard"
-                android:textColor="@color/white"
-                android:textSize="@dimen/ds_sp8" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                android:background="?selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/px6"
+                android:paddingBottom="@dimen/px6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/bottom_menu_duration"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/bottom_menu_duration"
-            android:layout_width="0dp"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_keyboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/px18"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/edit_text_keyboard" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_keyboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px4"
+                    android:text="@string/keyboard"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/ds_sp8" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/bottom_menu_duration"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/menu_keyboard"
+                app:layout_constraintEnd_toStartOf="@+id/menu_style"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/menu_keyboard"
+                app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/px18"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/edit_detail_vector_duration" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px4"
+                    android:text="@string/duration"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/ds_sp8" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/menu_style"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/menu_font"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/bottom_menu_duration"
+                app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/px18"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/edit_text_style" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px4"
+                    android:text="@string/style"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/ds_sp8" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/menu_font"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/bottom_menu_text"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/menu_style"
+                app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_font"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/px18"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/edit_text_font" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_font"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px4"
+                    android:text="@string/font"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/ds_sp8" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/bottom_menu_text"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/menu_custom"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/menu_font"
+                app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/px18"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/edit_text_color" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px4"
+                    android:text="@string/color"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/ds_sp8" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/menu_custom"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/bottom_menu_text"
+                app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_custom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/px18"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/edit_text_custom" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_custom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px4"
+                    android:text="@string/custom"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/ds_sp8" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="?selectableItemBackgroundBorderless"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="@+id/menu_keyboard"
-            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_filter"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/menu_keyboard"
-            app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/px18"
-                android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_detail_vector_duration" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/px4"
-                android:text="@string/duration"
-                android:textColor="@color/white"
-                android:textSize="@dimen/ds_sp8" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/bottom_menu_filter"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="?selectableItemBackgroundBorderless"
-            android:gravity="center"
-            android:orientation="vertical"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/menu_font"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/bottom_menu_duration"
-            app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
+            app:layout_constraintTop_toBottomOf="@+id/bottom_menu_line" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_style"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/px18"
-                android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_text_style" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_style"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/px4"
-                android:text="@string/style"
-                android:textColor="@color/white"
-                android:textSize="@dimen/ds_sp8" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/menu_font"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="?selectableItemBackgroundBorderless"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_text"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/bottom_menu_filter"
-            app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/px18"
-                android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_text_font" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/px4"
-                android:text="@string/font"
-                android:textColor="@color/white"
-                android:textSize="@dimen/ds_sp8" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/bottom_menu_text"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="?selectableItemBackgroundBorderless"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/menu_custom"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/menu_font"
-            app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/px18"
-                android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_text_color" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/px4"
-                android:text="@string/color"
-                android:textColor="@color/white"
-                android:textSize="@dimen/ds_sp8" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/menu_custom"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="?selectableItemBackgroundBorderless"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/bottom_menu_text"
-            app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/px18"
-                android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_text_custom" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/px4"
-                android:text="@string/custom"
-                android:textColor="@color/white"
-                android:textSize="@dimen/ds_sp8" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
+        <View
+            android:id="@+id/bottom_menu_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/black_3A3A3A"
+            app:layout_constraintBottom_toBottomOf="@+id/view_bottom" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
