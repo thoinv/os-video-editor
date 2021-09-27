@@ -8,33 +8,67 @@
 
     <include
         android:id="@+id/layout_toolbar"
-        layout="@layout/all_view_toolbar" />
+        layout="@layout/all_view_toolbar_cancel_save" />
 
     <View
         android:id="@+id/vv_preview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/px12"
         android:background="@color/primary"
-        app:layout_constraintBottom_toTopOf="@+id/bt_play"
+        app:layout_constraintBottom_toTopOf="@+id/layout_toolbox"
         app:layout_constraintTop_toBottomOf="@+id/layout_toolbar" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/bt_play"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_toolbox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/px12"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/all_vector_play_video" />
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/bt_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px12"
+            android:layout_marginBottom="@dimen/px12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/all_vector_play_video" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px20"
+            android:layout_marginRight="@dimen/px20"
+            android:background="@color/primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_edittext_bg"
+                android:paddingLeft="@dimen/px12"
+                android:paddingTop="@dimen/px8"
+                android:paddingEnd="@dimen/px12"
+                android:paddingBottom="@dimen/px8"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ds_sp15"
+                android:textStyle="bold"
+                tools:text="@tools:sample/lorem" />
+
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/px300"
         android:background="@color/black_141617"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_menu_line">
+        app:layout_constraintBottom_toBottomOf="parent">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -50,10 +84,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black_141617"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout">
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/bottom_menu_transition"
+            android:id="@+id/menu_keyboard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="?selectableItemBackgroundBorderless"
@@ -69,15 +103,15 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/px18"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_detail_vector_transition" />
+                app:srcCompat="@drawable/edit_text_keyboard" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/px4"
-                android:text="@string/transition"
+                android:text="@string/keyboard"
                 android:textColor="@color/white"
                 android:textSize="@dimen/ds_sp8" />
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -89,15 +123,15 @@
             android:background="?selectableItemBackgroundBorderless"
             android:gravity="center"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="@+id/bottom_menu_transition"
+            app:layout_constraintBottom_toBottomOf="@+id/menu_keyboard"
             app:layout_constraintEnd_toStartOf="@+id/bottom_menu_filter"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/bottom_menu_transition"
-            app:layout_constraintTop_toTopOf="@+id/bottom_menu_transition">
+            app:layout_constraintStart_toEndOf="@+id/menu_keyboard"
+            app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/px18"
                 android:adjustViewBounds="true"
                 app:srcCompat="@drawable/edit_detail_vector_duration" />
 
@@ -118,30 +152,30 @@
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_sticker"
+            app:layout_constraintEnd_toStartOf="@+id/menu_font"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/bottom_menu_duration"
-            app:layout_constraintTop_toTopOf="@+id/bottom_menu_transition">
+            app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_filter"
+                android:id="@+id/iv_style"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/px18"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_detail_vector_filter" />
+                app:srcCompat="@drawable/edit_text_style" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_filter"
+                android:id="@+id/tv_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/px4"
-                android:text="@string/filter"
+                android:text="@string/style"
                 android:textColor="@color/white"
                 android:textSize="@dimen/ds_sp8" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/bottom_menu_sticker"
+            android:id="@+id/menu_font"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="?selectableItemBackgroundBorderless"
@@ -151,19 +185,19 @@
             app:layout_constraintEnd_toStartOf="@+id/bottom_menu_text"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/bottom_menu_filter"
-            app:layout_constraintTop_toTopOf="@+id/bottom_menu_transition">
+            app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/px18"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_detail_vector_sticker" />
+                app:srcCompat="@drawable/edit_text_font" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/px4"
-                android:text="@string/sticker"
+                android:text="@string/font"
                 android:textColor="@color/white"
                 android:textSize="@dimen/ds_sp8" />
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -176,28 +210,28 @@
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_zoom"
+            app:layout_constraintEnd_toStartOf="@+id/menu_custom"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/bottom_menu_sticker"
-            app:layout_constraintTop_toTopOf="@+id/bottom_menu_transition">
+            app:layout_constraintStart_toEndOf="@+id/menu_font"
+            app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/px18"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_detail_vector_text" />
+                app:srcCompat="@drawable/edit_text_color" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/px4"
-                android:text="@string/text"
+                android:text="@string/color"
                 android:textColor="@color/white"
                 android:textSize="@dimen/ds_sp8" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/bottom_menu_zoom"
+            android:id="@+id/menu_custom"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="?selectableItemBackgroundBorderless"
@@ -207,19 +241,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/bottom_menu_text"
-            app:layout_constraintTop_toTopOf="@+id/bottom_menu_transition">
+            app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/px18"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_detail_vector_zoom" />
+                app:srcCompat="@drawable/edit_text_custom" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/px4"
-                android:text="@string/zoom"
+                android:text="@string/custom"
                 android:textColor="@color/white"
                 android:textSize="@dimen/ds_sp8" />
         </androidx.appcompat.widget.LinearLayoutCompat>

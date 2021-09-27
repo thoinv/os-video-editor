@@ -19,6 +19,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 
@@ -31,8 +32,34 @@ import java.util.UUID;
 public class DeviceUtil {
 
     public static void showKeyboard(View view) {
-        InputMethodManager inputMethodManager = (InputMethodManager) ((Activity) view.getContext()).getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager inputMethodManager = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         inputMethodManager.showSoftInput(view, 0);
+    }
+
+    public static void showKeyboard(@NonNull Context context) {
+        InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+    }
+
+    public static void hideKeyboard(Context context) {
+        try {
+            Activity activity = (Activity) context;
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+            View view = activity.getCurrentFocus();
+            if (view == null) {
+                view = new View(activity);
+            }
+
+            if (imm != null) {
+                if (Build.VERSION.SDK_INT == android.os.Build.VERSION_CODES.P || Build.VERSION.SDK_INT == android.os.Build.VERSION_CODES.Q) {
+                    imm.hideSoftInputFromWindow(activity.findViewById(android.R.id.content).getWindowToken(), 0);
+                    return;
+                }
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void hideKeyboard(View view) {

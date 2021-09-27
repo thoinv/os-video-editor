@@ -4,11 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.EditText;
 
-import androidx.annotation.ColorRes;
-import androidx.core.content.ContextCompat;
 import androidx.viewbinding.ViewBinding;
 
 import com.example.videoeditor.R;
@@ -33,8 +30,8 @@ public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBi
             } else if (id == R.id.bottom_menu_filter) {
                 onButtonMenuFilterClicked();
 
-            } else if (id == R.id.bottom_menu_music) {
-                onButtonMenuMusicClicked();
+            } else if (id == R.id.bottom_menu_sticker) {
+                onButtonMenuStickerClicked();
 
             } else if (id == R.id.bottom_menu_transition) {
                 EditTransitionActivity.open(this);
@@ -49,7 +46,7 @@ public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBi
         };
         binding.bottomMenuDuration.setOnClickListener(onButtonClicked);
         binding.bottomMenuFilter.setOnClickListener(onButtonClicked);
-        binding.bottomMenuMusic.setOnClickListener(onButtonClicked);
+        binding.bottomMenuSticker.setOnClickListener(onButtonClicked);
         binding.bottomMenuTransition.setOnClickListener(onButtonClicked);
         binding.bottomMenuZoom.setOnClickListener(onButtonClicked);
         binding.bottomMenuText.setOnClickListener(onButtonClicked);
@@ -64,8 +61,8 @@ public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBi
         Util.changeFilterButtonColor(binding.ivFilter, binding.tvFilter, R.color.orange);
     }
 
-    private void onButtonMenuMusicClicked() {
-
+    private void onButtonMenuStickerClicked() {
+        EditStickerActivity.open(this);
     }
 
     private void onButtonMenuZoomClicked() {
@@ -73,7 +70,7 @@ public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBi
     }
 
     private void onButtonMenuTextClicked() {
-
+        EditTextActivity.open(this);
     }
 
     private void onButtonMenuDurationClicked() {

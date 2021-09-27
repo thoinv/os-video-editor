@@ -42,4 +42,10 @@
     <string name="share_more">Thêm</string>
     <string name="duration">Duration</string>
     <string name="edit_duration_total">Duration\t\t&lt;font color=#F9764D>%s&lt;/font></string>
+    <string name="sticker">Sticker</string>
+    <string name="keyboard">Keyboard</string>
+    <string name="style">Style</string>
+    <string name="font">Font</string>
+    <string name="color">Color</string>
+    <string name="custom">Custom</string>
 </resources>

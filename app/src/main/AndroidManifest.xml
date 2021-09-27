@@ -64,6 +64,12 @@
             android:name=".feature.edit.editdetail.EditDurationActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.edit.editdetail.EditStickerActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity android:name=".feature.edit.editdetail.EditTextActivity" />
     </application>
 
 </manifest>

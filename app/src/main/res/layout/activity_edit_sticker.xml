@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:background="@color/primary">
 
-    <include
-        android:id="@+id/layout_toolbar"
-        layout="@layout/all_view_toolbar" />
+    <FrameLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/layout_toolbar"
+            layout="@layout/all_view_toolbar" />
+
+        <include
+            android:id="@+id/layout_toolbar_export"
+            layout="@layout/all_view_toolbar_export"
+            android:visibility="gone" />
+    </FrameLayout>
+
 
     <View
         android:id="@+id/vv_preview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/px12"
-        android:background="@color/primary"
         app:layout_constraintBottom_toTopOf="@+id/bt_play"
-        app:layout_constraintTop_toBottomOf="@+id/layout_toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/bt_play"
@@ -53,7 +65,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/bottom_menu_transition"
+            android:id="@+id/bottom_menu_edit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="?selectableItemBackgroundBorderless"
@@ -61,9 +73,9 @@
             android:orientation="vertical"
             android:paddingTop="@dimen/px6"
             android:paddingBottom="@dimen/px6"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_duration"
+            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_theme"
             app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -71,157 +83,105 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_detail_vector_transition" />
+                app:srcCompat="@drawable/editor_vector_edit" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/px4"
-                android:text="@string/transition"
-                android:textColor="@color/white"
-                android:textSize="@dimen/ds_sp8" />
+                android:text="@string/edit"
+                android:textColor="@color/gray_bottom_menu"
+                android:textSize="@dimen/ds_sp11" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/bottom_menu_duration"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="?selectableItemBackgroundBorderless"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="@+id/bottom_menu_transition"
-            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_filter"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/bottom_menu_transition"
-            app:layout_constraintTop_toTopOf="@+id/bottom_menu_transition">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_detail_vector_duration" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/px4"
-                android:text="@string/duration"
-                android:textColor="@color/white"
-                android:textSize="@dimen/ds_sp8" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/bottom_menu_filter"
+            android:id="@+id/bottom_menu_theme"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="?selectableItemBackgroundBorderless"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_sticker"
+            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_effect"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/bottom_menu_duration"
-            app:layout_constraintTop_toTopOf="@+id/bottom_menu_transition">
+            app:layout_constraintStart_toEndOf="@+id/bottom_menu_edit"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_detail_vector_filter" />
+                app:srcCompat="@drawable/editor_vector_theme" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/px4"
-                android:text="@string/filter"
-                android:textColor="@color/white"
-                android:textSize="@dimen/ds_sp8" />
+                android:text="@string/theme"
+                android:textColor="@color/gray_bottom_menu"
+                android:textSize="@dimen/ds_sp11" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/bottom_menu_sticker"
+            android:id="@+id/bottom_menu_effect"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="?selectableItemBackgroundBorderless"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_text"
+            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_music"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/bottom_menu_filter"
-            app:layout_constraintTop_toTopOf="@+id/bottom_menu_transition">
+            app:layout_constraintStart_toEndOf="@+id/bottom_menu_theme"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_effect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_detail_vector_sticker" />
+                app:srcCompat="@drawable/editor_vector_effect" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_effect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/px4"
-                android:text="@string/sticker"
-                android:textColor="@color/white"
-                android:textSize="@dimen/ds_sp8" />
+                android:text="@string/effect"
+                android:textColor="@color/gray_bottom_menu"
+                android:textSize="@dimen/ds_sp11" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/bottom_menu_text"
+            android:id="@+id/bottom_menu_music"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="?selectableItemBackgroundBorderless"
             android:gravity="center"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bottom_menu_zoom"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/bottom_menu_sticker"
-            app:layout_constraintTop_toTopOf="@+id/bottom_menu_transition">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_detail_vector_text" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/px4"
-                android:text="@string/text"
-                android:textColor="@color/white"
-                android:textSize="@dimen/ds_sp8" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/bottom_menu_zoom"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="?selectableItemBackgroundBorderless"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/bottom_menu_edit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/bottom_menu_text"
-            app:layout_constraintTop_toTopOf="@+id/bottom_menu_transition">
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/bottom_menu_effect"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_music"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/edit_detail_vector_zoom" />
+                app:srcCompat="@drawable/editor_vector_music" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_music"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/px4"
-                android:text="@string/zoom"
-                android:textColor="@color/white"
-                android:textSize="@dimen/ds_sp8" />
+                android:text="@string/music"
+                android:textColor="@color/gray_bottom_menu"
+                android:textSize="@dimen/ds_sp11" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
