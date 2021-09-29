@@ -1,11 +1,14 @@
 package com.example.videoeditor.feature.edit.editdetail.edittext;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.viewbinding.ViewBinding;
 
 import com.example.videoeditor.R;
@@ -16,6 +19,7 @@ import com.example.videoeditor.entities.TextStyle;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class EditTextCustomFragment extends BaseFragmentBinding<FragmentTextCustomBinding> {
 
@@ -47,27 +51,40 @@ public class EditTextCustomFragment extends BaseFragmentBinding<FragmentTextCust
     }
 
     private void initTextAlign() {
-        binding.btAlignCenter.setOnClickListener(v -> {
-            textAlign = TextAlign.CENTER;
-        });
-        binding.btAlignLeft.setOnClickListener(v -> {
-            textAlign = TextAlign.LEFT;
-        });
-        binding.btAlignRight.setOnClickListener(v -> {
-            textAlign = TextAlign.RIGHT;
-        });
+
+        View.OnClickListener onClickListener = v -> {
+            int id = v.getId();
+            textAlign = textAlignMap.get(id);
+            changeColor(textAlignMap.keySet(), id);
+        };
+        binding.btAlignCenter.setOnClickListener(onClickListener);
+        binding.btAlignLeft.setOnClickListener(onClickListener);
+        binding.btAlignRight.setOnClickListener(onClickListener);
+    }
+
+    private void changeColor(Set<Integer> integers, int id) {
+        ImageView viewChangeColor = null;
+        for (Integer viewId : integers) {
+            ImageView viewById = binding.getRoot().findViewById(viewId);
+            if (id == viewId) {
+                viewChangeColor = viewById;
+            }
+            viewById.setColorFilter(Color.WHITE, android.graphics.PorterDuff.Mode.SRC_IN);
+        }
+        if (viewChangeColor != null) {
+            viewChangeColor.setColorFilter(ContextCompat.getColor(context, R.color.orange), android.graphics.PorterDuff.Mode.SRC_IN);
+        }
     }
 
     private void initTextStyle() {
-        binding.btBold.setOnClickListener(v -> {
-            textStyle = TextStyle.BOLD;
-        });
-        binding.btItalic.setOnClickListener(v -> {
-            textStyle = TextStyle.ITALIC;
-        });
-        binding.btUnderline.setOnClickListener(v -> {
-            textStyle = TextStyle.UNDERLINE;
-        });
+        View.OnClickListener onClickListener = v -> {
+            int id = v.getId();
+            textStyle = textStyleMap.get(id);
+            changeColor(textStyleMap.keySet(), id);
+        };
+        binding.btBold.setOnClickListener(onClickListener);
+        binding.btItalic.setOnClickListener(onClickListener);
+        binding.btUnderline.setOnClickListener(onClickListener);
     }
 
     @Override
