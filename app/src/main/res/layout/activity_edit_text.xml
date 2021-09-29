@@ -150,7 +150,7 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/bottom_menu_text"
+                app:layout_constraintEnd_toStartOf="@+id/menu_color"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/menu_style"
                 app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
@@ -173,7 +173,7 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/bottom_menu_text"
+                android:id="@+id/menu_color"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="?selectableItemBackgroundBorderless"
@@ -186,12 +186,14 @@
                 app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_color"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/px18"
                     android:adjustViewBounds="true"
                     app:srcCompat="@drawable/edit_text_color" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_color"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/px4"
@@ -210,7 +212,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/bottom_menu_text"
+                app:layout_constraintStart_toEndOf="@+id/menu_color"
                 app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
 
                 <androidx.appcompat.widget.AppCompatImageView

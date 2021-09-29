@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="@dimen/px12"
-    tools:background="@color/primary">
+    tools:background="@color/black_141617">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_recent"

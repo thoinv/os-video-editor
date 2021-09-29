@@ -14,6 +14,7 @@ import androidx.viewbinding.ViewBinding;
 import com.example.videoeditor.R;
 import com.example.videoeditor.base.viewbinding.BaseActivityBinding;
 import com.example.videoeditor.databinding.ActivityEditTextBinding;
+import com.example.videoeditor.feature.edit.editdetail.edittext.EditColorFragment;
 import com.example.videoeditor.feature.edit.editdetail.edittext.EditFontFragment;
 import com.example.videoeditor.feature.edit.editdetail.edittext.EditTextCustomFragment;
 import com.example.videoeditor.feature.edit.editdetail.edittext.EditTextStyleFragment;
@@ -24,6 +25,7 @@ public class EditTextActivity extends BaseActivityBinding<ActivityEditTextBindin
 
     private EditTextStyleFragment styleFragment;
     private EditFontFragment fontFragment;
+    private EditColorFragment editColorFragment;
     private EditTextCustomFragment editTextCustomFragment;
     private ImageView currentMenuCoverSelected;
     private TextView currentMenuTextSelected;
@@ -53,6 +55,9 @@ public class EditTextActivity extends BaseActivityBinding<ActivityEditTextBindin
         });
         binding.menuCustom.setOnClickListener(v -> {
             showFragment(binding.ivCustom, binding.tvCustom, editTextCustomFragment);
+        });
+        binding.menuColor.setOnClickListener(v -> {
+            showFragment(binding.ivColor, binding.tvColor, editColorFragment);
         });
     }
 
@@ -96,13 +101,16 @@ public class EditTextActivity extends BaseActivityBinding<ActivityEditTextBindin
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         styleFragment = new EditTextStyleFragment();
         fontFragment = new EditFontFragment();
+        editColorFragment = new EditColorFragment();
         editTextCustomFragment = new EditTextCustomFragment();
         fragmentTransaction
                 .add(R.id.container, styleFragment)
                 .add(R.id.container, fontFragment)
                 .add(R.id.container, editTextCustomFragment)
+                .add(R.id.container, editColorFragment)
                 .hide(styleFragment)
                 .hide(fontFragment)
+                .hide(editColorFragment)
                 .hide(editTextCustomFragment)
                 .commitAllowingStateLoss();
     }
