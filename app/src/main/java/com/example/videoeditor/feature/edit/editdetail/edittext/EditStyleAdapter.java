@@ -10,13 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.videoeditor.base.viewbinding.BaseViewHolderBinding;
 import com.example.videoeditor.databinding.ItemTextStyleBinding;
-import com.example.videoeditor.entities.TextStyle;
+import com.example.videoeditor.entities.TextStyleItem;
 
 import java.util.List;
 
 public class EditStyleAdapter extends RecyclerView.Adapter<EditStyleAdapter.ItemViewHolder> {
-    private List<TextStyle> textStyles;
-    private TextStyle selectedItem;
+    private List<TextStyleItem> textStyles;
+    private TextStyleItem selectedItem;
 
     @NonNull
     @Override
@@ -34,7 +34,7 @@ public class EditStyleAdapter extends RecyclerView.Adapter<EditStyleAdapter.Item
         return textStyles == null ? 0 : textStyles.size();
     }
 
-    public void setData(List<TextStyle> textStyles) {
+    public void setData(List<TextStyleItem> textStyles) {
         this.textStyles = textStyles;
         notifyDataSetChanged();
     }
@@ -45,7 +45,7 @@ public class EditStyleAdapter extends RecyclerView.Adapter<EditStyleAdapter.Item
             super(binding);
         }
 
-        public void bind(TextStyle textStyle) {
+        public void bind(TextStyleItem textStyle) {
             Glide.with(getContext()).load(textStyle.getCoverRes()).into(binding.ivCover);
             binding.viewSelected.setVisibility(textStyle == selectedItem && !textStyle.getName().equalsIgnoreCase("none")
                     ? View.VISIBLE : View.GONE);

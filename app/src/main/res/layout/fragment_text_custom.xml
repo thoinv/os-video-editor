@@ -114,14 +114,16 @@
         style="@style/AppSeekBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:max="100"
         app:layout_constraintBottom_toBottomOf="@+id/label_opacity"
         app:layout_constraintLeft_toRightOf="@+id/label_opacity"
         app:layout_constraintRight_toLeftOf="@+id/tv_opacity_percent"
-        app:layout_constraintTop_toTopOf="@+id/label_opacity" />
+        app:layout_constraintTop_toTopOf="@+id/label_opacity"
+        tools:progress="40" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_opacity_percent"
-        android:layout_width="@dimen/px30"
+        android:layout_width="@dimen/px40"
         android:layout_height="wrap_content"
         android:gravity="right"
         android:text="0%"
@@ -150,6 +152,7 @@
         style="@style/AppSeekBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:max="100"
         app:layout_constraintBottom_toBottomOf="@+id/label_outline"
         app:layout_constraintLeft_toRightOf="@+id/label_outline"
         app:layout_constraintRight_toLeftOf="@+id/tv_outline_percent"
@@ -157,7 +160,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_outline_percent"
-        android:layout_width="@dimen/px30"
+        android:layout_width="@dimen/px40"
         android:layout_height="wrap_content"
         android:gravity="right"
         android:text="0%"
@@ -186,6 +189,7 @@
         style="@style/AppSeekBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:max="100"
         app:layout_constraintBottom_toBottomOf="@+id/label_spacing"
         app:layout_constraintLeft_toRightOf="@+id/label_spacing"
         app:layout_constraintRight_toLeftOf="@+id/tv_spacing_percent"
@@ -193,7 +197,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_spacing_percent"
-        android:layout_width="@dimen/px30"
+        android:layout_width="@dimen/px40"
         android:layout_height="wrap_content"
         android:gravity="right"
         android:text="0%"

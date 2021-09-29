@@ -7,7 +7,7 @@ import androidx.viewbinding.ViewBinding;
 import com.example.videoeditor.R;
 import com.example.videoeditor.base.viewbinding.BaseFragmentBinding;
 import com.example.videoeditor.databinding.FragmentTextStyleBinding;
-import com.example.videoeditor.entities.TextStyle;
+import com.example.videoeditor.entities.TextStyleItem;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,11 +21,11 @@ public class EditTextStyleFragment extends BaseFragmentBinding<FragmentTextStyle
 
     @Override
     protected void initViews(Bundle bundle) {
-        List<TextStyle> textStyles = Arrays.asList(
-                TextStyle.createNone(),
-                TextStyle.create("test 1", R.drawable.edit_style_1),
-                TextStyle.create("test 1", R.drawable.edit_style_2),
-                TextStyle.create("test 1", R.drawable.edit_style_3)
+        List<TextStyleItem> textStyles = Arrays.asList(
+                TextStyleItem.createNone(),
+                TextStyleItem.create("test 1", R.drawable.edit_style_1),
+                TextStyleItem.create("test 1", R.drawable.edit_style_2),
+                TextStyleItem.create("test 1", R.drawable.edit_style_3)
         );
         EditStyleAdapter adapter = new EditStyleAdapter();
         binding.rvStyle.setAdapter(adapter);

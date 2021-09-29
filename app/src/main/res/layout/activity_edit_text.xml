@@ -90,7 +90,7 @@
                 android:paddingTop="@dimen/px6"
                 android:paddingBottom="@dimen/px6"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/bottom_menu_duration"
+                app:layout_constraintEnd_toStartOf="@+id/menu_style"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -113,34 +113,6 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/bottom_menu_duration"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="?selectableItemBackgroundBorderless"
-                android:gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="@+id/menu_keyboard"
-                app:layout_constraintEnd_toStartOf="@+id/menu_style"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/menu_keyboard"
-                app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/px18"
-                    android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/edit_detail_vector_duration" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/px4"
-                    android:text="@string/duration"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/ds_sp8" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/menu_style"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -150,7 +122,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/menu_font"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/bottom_menu_duration"
+                app:layout_constraintStart_toEndOf="@+id/menu_keyboard"
                 app:layout_constraintTop_toTopOf="@+id/menu_keyboard">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -258,6 +230,12 @@
                     android:textSize="@dimen/ds_sp8" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
+            <View
+                android:id="@+id/bottom_menu_line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/black_3A3A3A"
+                app:layout_constraintBottom_toBottomOf="@+id/view_bottom" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <FrameLayout
@@ -266,15 +244,9 @@
             android:layout_height="0dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bottom_menu_line" />
+            app:layout_constraintTop_toBottomOf="@+id/view_bottom"
+            tools:visibility="visible" />
 
-
-        <View
-            android:id="@+id/bottom_menu_line"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/black_3A3A3A"
-            app:layout_constraintBottom_toBottomOf="@+id/view_bottom" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
