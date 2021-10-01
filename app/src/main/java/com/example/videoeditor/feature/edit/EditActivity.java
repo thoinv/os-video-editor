@@ -6,16 +6,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewbinding.ViewBinding;
 
 import com.example.videoeditor.R;
 import com.example.videoeditor.base.viewbinding.BaseActivityBinding;
 import com.example.videoeditor.databinding.ActivityEditBinding;
 import com.example.videoeditor.feature.edit.editdetail.EditDetailActivity;
+import com.example.videoeditor.feature.edit.editdetail.edittext.EditColorFragment;
+import com.example.videoeditor.feature.edit.editdetail.edittext.EditFontFragment;
+import com.example.videoeditor.feature.edit.editdetail.edittext.EditTextCustomFragment;
+import com.example.videoeditor.feature.edit.editdetail.edittext.EditTextStyleFragment;
 import com.example.videoeditor.feature.edit.export.ExportActivity;
+import com.example.videoeditor.feature.edit.music.MusicFragment;
 import com.example.videoeditor.util.Util;
 
 public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
+
+    private MusicFragment musicFragment;
+    private Fragment currentFragment;
 
     public static void open(Context context) {
         context.startActivity(new Intent(context, EditActivity.class));
@@ -60,13 +70,22 @@ public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
     }
 
     private void onBottomMenuMusicClicked() {
-        Toast.makeText(this, "onBottomMenuMusicClicked", Toast.LENGTH_SHORT).show();
         Util.changeFilterButtonColor(binding.ivMusic, binding.tvMusic, R.color.orange);
         binding.layoutToolbarExport.getRoot().setVisibility(View.VISIBLE);
         binding.layoutToolbarExport.tvToolbarTitle.setText(R.string.music);
         binding.layoutToolbarExport.btExport.setOnClickListener(v -> {
             ExportActivity.open(this);
         });
+        showFragment(musicFragment);
+    }
+
+    private void showFragment(Fragment fragment) {
+        if (currentFragment == fragment) {
+            return;
+        }
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.show(fragment).commitAllowingStateLoss();
+        currentFragment = fragment;
     }
 
     private void onBottomMenuEffectClicked() {
@@ -82,5 +101,15 @@ public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
     @Override
     protected void initViews(Bundle bundle) {
         binding.layoutToolbar.tvToolbarTitle.setText(R.string.edit);
+        initFragments();
+    }
+
+    private void initFragments() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        musicFragment = new MusicFragment();
+        fragmentTransaction
+                .add(R.id.container, musicFragment)
+                .hide(musicFragment)
+                .commitAllowingStateLoss();
     }
 }

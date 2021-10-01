@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/px12"
+    android:paddingTop="@dimen/px18"
     tools:background="@color/black_141617">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -14,7 +14,8 @@
         android:paddingStart="@dimen/px18"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/all_vector_recently" />
+        app:srcCompat="@drawable/all_vector_recently"
+        tools:ignore="RtlSymmetry" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"

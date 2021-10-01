@@ -7,8 +7,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/content"
-        android:layout_width="@dimen/px68"
-        android:layout_height="@dimen/px68"
+        android:layout_width="@dimen/px80"
+        android:layout_height="@dimen/px80"
         android:layout_marginEnd="@dimen/px10"
         app:cardCornerRadius="@dimen/px4"
         app:cardElevation="0dp"
@@ -33,5 +33,6 @@
         android:id="@+id/view_padding"
         android:layout_width="@dimen/px12"
         android:layout_height="1dp"
-        app:layout_constraintLeft_toRightOf="@+id/content" />
+        app:layout_constraintLeft_toRightOf="@+id/content"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
