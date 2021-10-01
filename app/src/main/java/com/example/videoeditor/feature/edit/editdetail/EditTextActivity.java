@@ -3,6 +3,8 @@ package com.example.videoeditor.feature.edit.editdetail;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -48,7 +50,7 @@ public class EditTextActivity extends BaseActivityBinding<ActivityEditTextBindin
             showFragment(binding.ivFont, binding.tvFont, fontFragment);
         });
         binding.menuKeyboard.setOnClickListener(v -> {
-            showFragment(binding.ivKeyboard, binding.tvKeyboard, styleFragment);
+            showFragment(binding.ivKeyboard, binding.tvKeyboard, null);
         });
         binding.menuStyle.setOnClickListener(v -> {
             showFragment(binding.ivStyle, binding.tvStyle, styleFragment);
@@ -62,7 +64,7 @@ public class EditTextActivity extends BaseActivityBinding<ActivityEditTextBindin
     }
 
     private void showFragment(ImageView menuIcon, TextView menuText, Fragment fragment) {
-        if (fragment == prevFragment && menuIcon != binding.ivKeyboard) {
+        if (fragment != null && fragment == prevFragment && menuIcon != binding.ivKeyboard) {
             return;
         }
         ImageView prevMenuCoverSelected = currentMenuCoverSelected;
@@ -73,19 +75,27 @@ public class EditTextActivity extends BaseActivityBinding<ActivityEditTextBindin
         }
         Util.changeFilterButtonColor(menuIcon, menuText, R.color.orange);
 
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.show(fragment);
-        if (prevFragment != null) {
-            fragmentTransaction.hide(prevFragment);
+        if (fragment != null) {
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.show(fragment);
+            if (prevFragment != null) {
+                fragmentTransaction.hide(prevFragment);
+            }
+            fragmentTransaction.commitAllowingStateLoss();
         }
-        fragmentTransaction.commitAllowingStateLoss();
 
         binding.container.setVisibility(View.VISIBLE);
         if (menuIcon == binding.ivKeyboard) {
-            DeviceUtil.showKeyboard(binding.edText);
             binding.container.setVisibility(View.GONE);
             binding.edText.setVisibility(View.VISIBLE);
-            binding.edText.requestFocus();
+            new Handler().postDelayed(() -> {
+                if (binding == null) {
+                    return;
+                }
+                binding.edText.requestFocus();
+                DeviceUtil.showKeyboard(binding.edText);
+            }, 300);
+
         } else {
             binding.container.setVisibility(View.VISIBLE);
             binding.viewFocus.clearFocus();
@@ -124,6 +134,6 @@ public class EditTextActivity extends BaseActivityBinding<ActivityEditTextBindin
     protected void initViews(Bundle bundle) {
         binding.layoutToolbar.tvToolbarTitle.setText(R.string.text);
         initFragments();
-        showFragment(binding.ivKeyboard, binding.tvKeyboard, styleFragment);
+        showFragment(binding.ivKeyboard, binding.tvKeyboard, null);
     }
 }

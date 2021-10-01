@@ -1,15 +1,19 @@
 package com.example.videoeditor.feature.edit.editdetail.edittext;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.videoeditor.R;
 import com.example.videoeditor.base.viewbinding.BaseViewHolderBinding;
 import com.example.videoeditor.databinding.ItemFontColorBinding;
 import com.example.videoeditor.entities.EditColorItem;
+import com.example.videoeditor.util.Util;
 
 import java.util.List;
 
@@ -54,10 +58,11 @@ public class EditColorAdapter extends RecyclerView.Adapter<EditColorAdapter.Item
         }
 
         public void bind(EditColorItem editColorItem) {
-            binding.ivImage.setCircleBackgroundColorResource(editColorItem.getColor());
+            binding.ivImage.setImageResource(editColorItem.getColor());
             int colorBorder = editColorItem.getColorBorder();
             if (colorBorder > 0) {
-                binding.ivImage.setBorderColor(colorBorder);
+                binding.ivImage.setBorderColor(ContextCompat.getColor(getContext(), colorBorder));
+                binding.ivImage.setBorderWidth(Util.dimenToPixel(getContext(), R.dimen.px2));
             }
             binding.getRoot().setOnClickListener(new View.OnClickListener() {
                 @Override

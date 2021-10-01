@@ -12,7 +12,7 @@
         android:id="@+id/layout_text_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/px20"
+        android:layout_marginTop="@dimen/px28"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -108,7 +108,7 @@
         android:id="@+id/label_opacity"
         android:layout_width="@dimen/px70"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/px20"
+        android:layout_marginTop="@dimen/px24"
         android:text="@string/opacity"
         android:textColor="@color/white"
         android:textSize="@dimen/ds_sp13"
