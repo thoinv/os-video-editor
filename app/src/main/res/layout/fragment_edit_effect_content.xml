@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/px18"
+    android:background="@color/black_141617"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/border_line"
+    app:layout_constraintVertical_bias="0.0"
+    tools:layout_editor_absoluteX="0dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_recent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/px18"
+        android:paddingTop="@dimen/px4"
+        android:paddingBottom="@dimen/px4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/all_vector_recently"
+        tools:ignore="RtlSymmetry" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_recent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/px20"
+        android:text="@string/recently"
+        android:textColor="@color/gray_858A8E"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_recent"
+        app:layout_constraintLeft_toRightOf="@+id/iv_recent"
+        app:layout_constraintTop_toTopOf="@+id/iv_recent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/dot"
+        android:layout_width="@dimen/px2"
+        android:layout_height="@dimen/px2"
+        android:layout_marginStart="@dimen/px12"
+        android:src="@color/gray_858A8E"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_recent"
+        app:layout_constraintLeft_toRightOf="@+id/tv_recent"
+        app:layout_constraintTop_toTopOf="@+id/tv_recent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_effect_group"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/px12"
+        android:layout_marginTop="@dimen/px2"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_recent"
+        app:layout_constraintLeft_toRightOf="@+id/dot"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_recent"
+        tools:listitem="@layout/view_custom_text" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px28"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/px18"
+        android:paddingEnd="@dimen/px18"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_recent"
+        app:layout_constraintVertical_bias="0.4"
+        tools:listitem="@layout/item_text_style" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
