@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary">
@@ -35,12 +36,18 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
 
-        <HorizontalScrollView
-            android:id="@+id/hlv_trans"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_trans"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/px90"
+            android:layout_height="wrap_content"
             android:background="#2C2E33"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/px10"
+            android:paddingBottom="@dimen/px10"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_transition" />
 
         <View
             android:id="@+id/choose_storyboard_view_trans"
@@ -48,7 +55,7 @@
             android:layout_height="0dp"
             android:layout_alignParentBottom="true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/hlv_trans" />
+            app:layout_constraintTop_toBottomOf="@+id/rv_trans" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

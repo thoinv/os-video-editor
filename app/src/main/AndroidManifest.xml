@@ -41,7 +41,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".feature.edit.editdetail.EditTransitionActivity"
+            android:name=".feature.edit.editdetail.edittransition.EditTransitionActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 

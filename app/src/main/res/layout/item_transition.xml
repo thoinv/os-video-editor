@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:background="@color/black_141617">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/layout_cover"
+        android:layout_width="@dimen/px54"
+        android:layout_height="@dimen/px54"
+        app:cardCornerRadius="@dimen/px54"
+        app:cardElevation="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="@dimen/px54"
+            android:layout_height="@dimen/px54"
+            tools:src="@tools:sample/avatars" />
+
+        <View
+            android:id="@+id/view_selected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#A6F9764D"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px4"
+        android:gravity="center"
+        android:lines="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/ds_sp10"
+        app:layout_constraintLeft_toLeftOf="@+id/layout_cover"
+        app:layout_constraintRight_toRightOf="@+id/layout_cover"
+        app:layout_constraintTop_toBottomOf="@+id/layout_cover"
+        tools:text="@tools:sample/lorem" />
+</androidx.constraintlayout.widget.ConstraintLayout>

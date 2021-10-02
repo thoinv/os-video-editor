@@ -4,13 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 
 import androidx.viewbinding.ViewBinding;
 
 import com.example.videoeditor.R;
 import com.example.videoeditor.base.viewbinding.BaseActivityBinding;
 import com.example.videoeditor.databinding.ActivityEditDetailBinding;
+import com.example.videoeditor.feature.edit.editdetail.edittransition.EditTransitionActivity;
 import com.example.videoeditor.util.Util;
 
 public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBinding> {
