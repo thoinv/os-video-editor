@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_141617">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <com.example.videoeditor.view.CustomTextView
+            android:id="@+id/tab_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/px60"
+            android:padding="@dimen/px14"
+            android:text="@string/filter"
+            android:textColor="@color/white"
+            android:textSize="@dimen/ds_sp16"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tab_effect"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.example.videoeditor.view.CustomTextView
+            android:id="@+id/tab_effect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/px14"
+            android:text="@string/effect"
+            android:textColor="@color/white"
+            android:textSize="@dimen/ds_sp16"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tab_filter"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <View
+        android:id="@+id/border_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/black_3A3A3A"
+        app:layout_constraintTop_toBottomOf="@+id/tabs" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="@dimen/px18"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/border_line">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_recent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/px18"
+            android:paddingTop="@dimen/px4"
+            android:paddingBottom="@dimen/px4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/all_vector_recently"
+            tools:ignore="RtlSymmetry" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_recent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/px20"
+            android:text="@string/recently"
+            android:textColor="@color/gray_858A8E"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_recent"
+            app:layout_constraintLeft_toRightOf="@+id/iv_recent"
+            app:layout_constraintTop_toTopOf="@+id/iv_recent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/dot"
+            android:layout_width="@dimen/px2"
+            android:layout_height="@dimen/px2"
+            android:layout_marginStart="@dimen/px12"
+            android:src="@color/gray_858A8E"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_recent"
+            app:layout_constraintLeft_toRightOf="@+id/tv_recent"
+            app:layout_constraintTop_toTopOf="@+id/tv_recent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_effect_group"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/px12"
+            android:layout_marginTop="@dimen/px2"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_recent"
+            app:layout_constraintLeft_toRightOf="@+id/dot"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_recent"
+            tools:listitem="@layout/view_custom_text" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px28"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/px18"
+            android:paddingEnd="@dimen/px18"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_recent"
+            app:layout_constraintVertical_bias="0.4"
+            tools:listitem="@layout/item_text_style" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,4 +12,12 @@
         <item name="android:progressTint">#F9764D</item>
         <item name="android:thumbTint">#F9764D</item>
     </style>
+
+    <declare-styleable name="CustomTextView">
+        <attr name="android:textColor" />
+        <attr name="android:textStyle" />
+        <attr name="android:textSize" />
+        <attr name="android:text" />
+        <attr name="selectedTextColor" format="reference|color" />
+    </declare-styleable>
 </resources>

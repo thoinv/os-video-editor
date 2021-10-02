@@ -18,6 +18,7 @@ import com.example.videoeditor.feature.edit.editdetail.edittext.EditColorFragmen
 import com.example.videoeditor.feature.edit.editdetail.edittext.EditFontFragment;
 import com.example.videoeditor.feature.edit.editdetail.edittext.EditTextCustomFragment;
 import com.example.videoeditor.feature.edit.editdetail.edittext.EditTextStyleFragment;
+import com.example.videoeditor.feature.edit.effect.EditEffectFragment;
 import com.example.videoeditor.feature.edit.export.ExportActivity;
 import com.example.videoeditor.feature.edit.music.MusicFragment;
 import com.example.videoeditor.util.Util;
@@ -25,7 +26,9 @@ import com.example.videoeditor.util.Util;
 public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
 
     private MusicFragment musicFragment;
+    private EditEffectFragment effectFragment;
     private Fragment currentFragment;
+    private Fragment prevFragment;
 
     public static void open(Context context) {
         context.startActivity(new Intent(context, EditActivity.class));
@@ -83,14 +86,19 @@ public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
         if (currentFragment == fragment) {
             return;
         }
+        prevFragment = currentFragment;
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.show(fragment).commitAllowingStateLoss();
+        fragmentTransaction.show(fragment);
+        if (prevFragment != null) {
+            fragmentTransaction.hide(prevFragment);
+        }
+        fragmentTransaction.commitAllowingStateLoss();
         currentFragment = fragment;
     }
 
     private void onBottomMenuEffectClicked() {
-        Toast.makeText(this, "onBottomMenuEffectClicked", Toast.LENGTH_SHORT).show();
         Util.changeFilterButtonColor(binding.ivEffect, binding.tvEffect, R.color.orange);
+        showFragment(effectFragment);
     }
 
     @Override
@@ -107,9 +115,12 @@ public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
     private void initFragments() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         musicFragment = new MusicFragment();
+        effectFragment = new EditEffectFragment();
         fragmentTransaction
                 .add(R.id.container, musicFragment)
+                .add(R.id.container, effectFragment)
                 .hide(musicFragment)
+                .hide(effectFragment)
                 .commitAllowingStateLoss();
     }
 }
