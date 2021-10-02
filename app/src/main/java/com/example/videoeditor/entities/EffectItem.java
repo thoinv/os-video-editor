@@ -2,7 +2,9 @@ package com.example.videoeditor.entities;
 
 import androidx.annotation.DrawableRes;
 
-public class EffectItem {
+import java.io.Serializable;
+
+public class EffectItem implements Serializable {
     private final int id;
     private final String name;
     private final int cover;

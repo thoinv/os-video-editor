@@ -1,9 +1,7 @@
 package com.example.videoeditor.feature.edit.effect;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.viewbinding.ViewBinding;
 
@@ -17,10 +15,12 @@ import java.util.Map;
 
 public class EditEffectContentFragment extends BaseFragmentBinding<FragmentEditEffectContentBinding> {
 
+    private static final String EXTRA_DATA = "data";
+
     public static EditEffectContentFragment newInstance(Map<String, List<EffectItem>> listMap) {
         EditEffectContentFragment editEffectContentFragment = new EditEffectContentFragment();
         Bundle args = new Bundle();
-        args.putSerializable("data", (Serializable) listMap);
+        args.putSerializable(EXTRA_DATA, (Serializable) listMap);
         editEffectContentFragment.setArguments(args);
         return editEffectContentFragment;
     }
@@ -33,14 +33,13 @@ public class EditEffectContentFragment extends BaseFragmentBinding<FragmentEditE
     @Override
     protected void initViews(Bundle bundle) {
         Bundle arguments = getArguments();
-        Map<String, List<EffectItem>> listMap = (Map<String, List<EffectItem>>) arguments.getSerializable("data");
+        Map<String, List<EffectItem>> listMap = (Map<String, List<EffectItem>>) arguments.getSerializable(EXTRA_DATA);
         EditEffectAdapter effectAdapter = new EditEffectAdapter();
         binding.rvStyle.setAdapter(effectAdapter);
 
         EditEffectGroupAdapter effectGroupAdapter = new EditEffectGroupAdapter();
         binding.rvEffectGroup.setAdapter(effectGroupAdapter);
         effectGroupAdapter.setCallback((position, effectItems) -> {
-            Log.i("superman", "initViews: 1");
             effectAdapter.setData(effectItems);
         });
         effectGroupAdapter.setData(listMap);
