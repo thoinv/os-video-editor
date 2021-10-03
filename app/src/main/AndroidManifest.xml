@@ -61,7 +61,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".feature.edit.editdetail.EditDurationActivity"
+            android:name=".feature.edit.editdetail.editduration.EditDurationActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 

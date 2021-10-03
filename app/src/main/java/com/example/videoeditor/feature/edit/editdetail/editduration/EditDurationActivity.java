@@ -1,4 +1,4 @@
-package com.example.videoeditor.feature.edit.editdetail;
+package com.example.videoeditor.feature.edit.editdetail.editduration;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.text.Spanned;
 import android.widget.SeekBar;
 
 import androidx.core.text.HtmlCompat;
+import androidx.lifecycle.Observer;
 import androidx.viewbinding.ViewBinding;
 
 import com.example.videoeditor.R;
@@ -22,7 +23,7 @@ import java.util.List;
 
 public class EditDurationActivity extends BaseActivityBinding<ActivityEditDurationBinding> {
 
-    private EditVideoTransitionAdapter editClipAdapter;
+    private EditDurationAdapter editClipAdapter;
 
     public static void open(Context context) {
         context.startActivity(new Intent(context, EditDurationActivity.class));
@@ -77,9 +78,12 @@ public class EditDurationActivity extends BaseActivityBinding<ActivityEditDurati
 
     private void initClip() {
         List<Media> selectedItems = RecentCacheData.instance().getSelectedItems();
-        String source = String.format(getString(R.string.clip_number_format), selectedItems.size());
-        binding.tvNumberOfMedia.setText(HtmlCompat.fromHtml(source, HtmlCompat.FROM_HTML_MODE_LEGACY));
-        editClipAdapter = new EditVideoTransitionAdapter();
+        RecentCacheData.instance().getSelectedItemsObservable(this, media -> {
+            String source = String.format(getString(R.string.clip_number_format), media.size());
+            binding.tvNumberOfMedia.setText(HtmlCompat.fromHtml(source, HtmlCompat.FROM_HTML_MODE_LEGACY));
+        });
+
+        editClipAdapter = new EditDurationAdapter().canSelectItem();
         binding.rvClips.setAdapter(editClipAdapter);
         editClipAdapter.setData(selectedItems);
         binding.rvClips.addItemDecoration(new SpacesItemDecoration(Util.dimenToPixel(this, R.dimen.px4)));

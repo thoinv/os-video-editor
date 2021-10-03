@@ -9,6 +9,7 @@ import java.io.Serializable;
 public class Media implements Serializable {
     private int mediaResourceId;
     private TransitionItem transitionItem;
+    private int duration;
 
     Media() {
 
@@ -39,5 +40,13 @@ public class Media implements Serializable {
 
     public TransitionItem getTransitionItem() {
         return transitionItem;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public int getDuration() {
+        return duration;
     }
 }

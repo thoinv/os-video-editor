@@ -97,6 +97,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:background="@color/black_141617"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hlv_trans">
@@ -117,7 +118,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="@dimen/px10"
+                android:clipToPadding="false"
                 android:orientation="horizontal"
+                android:paddingStart="@dimen/px12"
+                android:paddingEnd="@dimen/px12"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_recent_selected" />
         </androidx.appcompat.widget.LinearLayoutCompat>

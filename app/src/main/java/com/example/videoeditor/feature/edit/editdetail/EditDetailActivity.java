@@ -10,6 +10,7 @@ import androidx.viewbinding.ViewBinding;
 import com.example.videoeditor.R;
 import com.example.videoeditor.base.viewbinding.BaseActivityBinding;
 import com.example.videoeditor.databinding.ActivityEditDetailBinding;
+import com.example.videoeditor.feature.edit.editdetail.editduration.EditDurationActivity;
 import com.example.videoeditor.feature.edit.editdetail.edittransition.EditTransitionActivity;
 import com.example.videoeditor.util.Util;
 

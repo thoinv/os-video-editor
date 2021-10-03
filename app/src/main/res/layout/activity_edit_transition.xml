@@ -74,7 +74,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="@dimen/px10"
+                android:clipToPadding="false"
                 android:orientation="horizontal"
+                android:paddingStart="@dimen/px12"
+                android:paddingEnd="@dimen/px12"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_video_transition" />
         </androidx.appcompat.widget.LinearLayoutCompat>
