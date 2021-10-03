@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 public class Media implements Serializable {
     private int mediaResourceId;
+    private TransitionItem transitionItem;
 
     Media() {
 
@@ -30,5 +31,13 @@ public class Media implements Serializable {
             return R.drawable.all_vector_video_type;
         }
         return R.drawable.all_vector_image_type;
+    }
+
+    public void setTransitionItem(TransitionItem transitionItem) {
+        this.transitionItem = transitionItem;
+    }
+
+    public TransitionItem getTransitionItem() {
+        return transitionItem;
     }
 }

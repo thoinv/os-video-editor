@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -62,6 +63,7 @@ public class RecentSelectedAdapter extends RecyclerView.Adapter<RecentSelectedAd
 
         public void bind(Media media, Delegate delegate) {
             Glide.with(getContext()).load(media.getMediaResourceId()).into(binding.ivMedia);
+            binding.btRemove.setVisibility(View.VISIBLE);
             binding.btRemove.setOnClickListener(v -> {
                 if (delegate != null) {
                     delegate.removeItem();
