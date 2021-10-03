@@ -36,6 +36,7 @@ public class EditEffectFragment extends BaseFragmentBinding<FragmentEditEffectBi
     }
 
     private void initEffectGroups() {
+        // FIXME: 10/4/2021 change data effect
         Map<String, List<EffectItem>> stringEffectItemMap = new HashMap<>();
         List<EffectItem> effectItems = Arrays.asList(
                 EffectItem.createItem(1, "D0-2", R.drawable.effect_ic_1),

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/px300"
+    android:background="@color/black_141617"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_trans"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2C2E33"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/px10"
+        android:paddingBottom="@dimen/px10"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_filter" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/choose_storyboard_view_trans"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_trans">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_number_of_media"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/px14"
+            android:textColor="@color/gray_858A8E"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            tools:text="4 clips" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_clips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/px10"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/px12"
+            android:paddingEnd="@dimen/px12"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_video_transition" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>

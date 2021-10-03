@@ -1,6 +1,5 @@
-package com.example.videoeditor.feature.edit.effect;
+package com.example.videoeditor.feature.edit.editdetail.editsticker;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -9,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.videoeditor.base.viewbinding.BaseViewHolderBinding;
 import com.example.videoeditor.databinding.ItemEffectGroupBinding;
-import com.example.videoeditor.entities.EffectItem;
+import com.example.videoeditor.databinding.ItemStickerGroupBinding;
+import com.example.videoeditor.entities.StickerItem;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -17,15 +17,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class EditEffectGroupAdapter extends RecyclerView.Adapter<EditEffectGroupAdapter.ItemEffectGroupHolder> {
+public class EditStickerGroupAdapter extends RecyclerView.Adapter<EditStickerGroupAdapter.ItemStickerGroupHolder> {
 
     private ArrayList<String> groups;
-    private Map<String, List<EffectItem>> groupMap;
+    private Map<String, List<StickerItem>> groupMap;
     private Callback callback;
     private String selectedGroup;
 
     public interface Callback {
-        void onItemSelected(int position, List<EffectItem> effectItems);
+        void onItemSelected(int position, List<StickerItem> effectItems);
     }
 
     public void setCallback(Callback callback) {
@@ -35,12 +35,12 @@ public class EditEffectGroupAdapter extends RecyclerView.Adapter<EditEffectGroup
     @NonNull
     @NotNull
     @Override
-    public ItemEffectGroupHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        return new ItemEffectGroupHolder(ItemEffectGroupBinding.inflate(LayoutInflater.from(parent.getContext())));
+    public EditStickerGroupAdapter.ItemStickerGroupHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+        return new ItemStickerGroupHolder(ItemStickerGroupBinding.inflate(LayoutInflater.from(parent.getContext())));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull ItemEffectGroupHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull EditStickerGroupAdapter.ItemStickerGroupHolder holder, int position) {
         String groupName = groups.get(position);
         holder.bind(groupName, callback);
     }
@@ -50,7 +50,7 @@ public class EditEffectGroupAdapter extends RecyclerView.Adapter<EditEffectGroup
         return groups == null ? 0 : groups.size();
     }
 
-    public void setData(Map<String, List<EffectItem>> groupMap) {
+    public void setData(Map<String, List<StickerItem>> groupMap) {
         this.selectedGroup = new ArrayList<>(groupMap.keySet()).get(0);
         updateData(groupMap);
         if (callback != null) {
@@ -58,14 +58,14 @@ public class EditEffectGroupAdapter extends RecyclerView.Adapter<EditEffectGroup
         }
     }
 
-    private void updateData(Map<String, List<EffectItem>> groupMap) {
+    private void updateData(Map<String, List<StickerItem>> groupMap) {
         this.groups = new ArrayList<>(groupMap.keySet());
         this.groupMap = groupMap;
         notifyDataSetChanged();
     }
 
-    class ItemEffectGroupHolder extends BaseViewHolderBinding<ItemEffectGroupBinding> {
-        public ItemEffectGroupHolder(ItemEffectGroupBinding binding) {
+    class ItemStickerGroupHolder extends BaseViewHolderBinding<ItemStickerGroupBinding> {
+        public ItemStickerGroupHolder(ItemStickerGroupBinding binding) {
             super(binding);
         }
 
