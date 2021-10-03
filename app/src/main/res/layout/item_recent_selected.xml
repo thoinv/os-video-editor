@@ -22,6 +22,18 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars" />
 
+        <View
+            android:id="@+id/view_selected"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#A6F9764D"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_media"
+            app:layout_constraintLeft_toLeftOf="@+id/iv_media"
+            app:layout_constraintRight_toRightOf="@+id/iv_media"
+            app:layout_constraintTop_toTopOf="@+id/iv_media"
+            tools:visibility="visible" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/bt_remove"
             android:layout_width="wrap_content"

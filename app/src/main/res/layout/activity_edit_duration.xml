@@ -68,11 +68,11 @@
 
             <androidx.appcompat.widget.AppCompatSeekBar
                 android:id="@+id/sb_duration"
+                style="@style/AppSeekBar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/px14"
                 android:layout_marginEnd="@dimen/px14"
-                style="@style/AppSeekBar"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_duration_start"
                 app:layout_constraintLeft_toRightOf="@+id/tv_duration_start"
                 app:layout_constraintRight_toLeftOf="@+id/tv_duration_end"
@@ -92,13 +92,35 @@
                 tools:text="0.1s" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <View
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/choose_storyboard_view_trans"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/hlv_trans" />
+            app:layout_constraintTop_toBottomOf="@+id/hlv_trans">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_number_of_media"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/px14"
+                android:textColor="@color/gray_858A8E"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                tools:text="4 clips" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_clips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="@dimen/px10"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_recent_selected" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
