@@ -9,15 +9,15 @@
 
     <FrameLayout
         android:id="@+id/layout_cover"
-        android:layout_width="@dimen/px68"
-        android:layout_height="@dimen/px68"
+        android:layout_width="@dimen/px70"
+        android:layout_height="@dimen/px70"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_theme_cover"
-            android:layout_width="@dimen/px68"
-            android:layout_height="@dimen/px68"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             tools:src="@drawable/all_ic_none" />
 
         <View
@@ -41,6 +41,7 @@
         android:paddingLeft="@dimen/px2"
         android:paddingRight="@dimen/px2"
         android:textColor="@color/white"
+        android:textSize="@dimen/ds_sp11"
         app:layout_constraintLeft_toLeftOf="@+id/layout_cover"
         app:layout_constraintRight_toRightOf="@+id/layout_cover"
         app:layout_constraintTop_toBottomOf="@+id/layout_cover"

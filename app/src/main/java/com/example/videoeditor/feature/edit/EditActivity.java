@@ -43,6 +43,10 @@ public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
 
             int id = v.getId();
             if (id == R.id.bottom_menu_edit) {
+                Util.changeFilterButtonColor(binding.ivMusic, binding.tvMusic, R.color.gray_bottom_menu);
+                Util.changeFilterButtonColor(binding.ivTheme, binding.tvTheme, R.color.gray_bottom_menu);
+                Util.changeFilterButtonColor(binding.ivEffect, binding.tvEffect, R.color.gray_bottom_menu);
+
                 EditDetailActivity.open(this);
 
             } else if (id == R.id.bottom_menu_effect) {
@@ -70,12 +74,13 @@ public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
         Toast.makeText(this, "onBottomMenuThemeClicked", Toast.LENGTH_SHORT).show();
         showFragment(themeFragment);
         Util.changeFilterButtonColor(binding.ivTheme, binding.tvTheme, R.color.orange);
-        Util.changeFilterButtonColor(binding.ivEffect, binding.tvEffect, R.color.white);
-        Util.changeFilterButtonColor(binding.ivMusic, binding.tvMusic, R.color.white);
+        Util.changeFilterButtonColor(binding.ivEffect, binding.tvEffect, R.color.gray_858A8E);
+        Util.changeFilterButtonColor(binding.ivMusic, binding.tvMusic, R.color.gray_858A8E);
     }
 
     private void onBottomMenuMusicClicked() {
         Util.changeFilterButtonColor(binding.ivMusic, binding.tvMusic, R.color.orange);
+        Util.changeFilterButtonColor(binding.ivTheme, binding.tvTheme, R.color.gray_858A8E);
         binding.layoutToolbarExport.getRoot().setVisibility(View.VISIBLE);
         binding.layoutToolbarExport.tvToolbarTitle.setText(R.string.music);
         binding.layoutToolbarExport.btExport.setOnClickListener(v -> {
@@ -100,6 +105,8 @@ public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
 
     private void onBottomMenuEffectClicked() {
         Util.changeFilterButtonColor(binding.ivEffect, binding.tvEffect, R.color.orange);
+        Util.changeFilterButtonColor(binding.ivTheme, binding.tvTheme, R.color.gray_858A8E);
+
         showFragment(effectFragment);
     }
 
