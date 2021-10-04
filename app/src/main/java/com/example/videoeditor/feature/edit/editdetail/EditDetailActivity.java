@@ -85,10 +85,14 @@ public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBi
 
     private void onButtonMenuTextClicked() {
         EditTextActivity.open(this);
+        Util.changeFilterButtonColor(binding.ivFilter, binding.tvFilter, R.color.white);
+        Util.changeFilterButtonColor(binding.ivSticker, binding.tvSticker, R.color.white);
     }
 
     private void onButtonMenuDurationClicked() {
         EditDurationActivity.open(this);
+        Util.changeFilterButtonColor(binding.ivFilter, binding.tvFilter, R.color.white);
+        Util.changeFilterButtonColor(binding.ivSticker, binding.tvSticker, R.color.white);
     }
 
     @Override

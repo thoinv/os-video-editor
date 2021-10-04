@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/px300"
+    android:layout_height="match_parent"
     android:background="@color/black_141617"
     app:layout_constraintBottom_toBottomOf="parent">
 
@@ -20,16 +20,16 @@
         android:paddingBottom="@dimen/px10"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toTopOf="parent"
+        tools:layout_height="@dimen/px100"
         tools:listitem="@layout/item_filter" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/choose_storyboard_view_trans"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/px14"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_trans">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_number_of_media"

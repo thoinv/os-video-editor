@@ -71,7 +71,6 @@ public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
     }
 
     private void onBottomMenuThemeClicked() {
-        Toast.makeText(this, "onBottomMenuThemeClicked", Toast.LENGTH_SHORT).show();
         showFragment(themeFragment);
         Util.changeFilterButtonColor(binding.ivTheme, binding.tvTheme, R.color.orange);
         Util.changeFilterButtonColor(binding.ivEffect, binding.tvEffect, R.color.gray_858A8E);
