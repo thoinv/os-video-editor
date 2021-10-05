@@ -94,6 +94,5 @@ public class RecentActivity extends BaseActivityBinding<ActivityRecentBinding> {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        RecentCacheData.instance().clear();
     }
 }

@@ -8,20 +8,19 @@
     android:background="@color/black_141617"
     app:layout_constraintBottom_toBottomOf="parent">
 
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_trans"
+        android:id="@+id/rv_filter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/px10"
         android:background="#2C2E33"
         android:clipToPadding="false"
         android:orientation="horizontal"
         android:paddingTop="@dimen/px10"
         android:paddingBottom="@dimen/px10"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_height="@dimen/px100"
-        tools:listitem="@layout/item_filter" />
+        app:layout_constraintBottom_toTopOf="@+id/choose_storyboard_view_trans"
+        tools:listitem="@layout/item_filter_group" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/choose_storyboard_view_trans"
