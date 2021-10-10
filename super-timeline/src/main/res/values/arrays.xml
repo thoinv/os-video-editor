@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="MediaControlView_playback_speeds">
+        <item>0.25x</item>
+        <item>0.5x</item>
+        <item>0.75x</item>
+        <item>1.25x</item>
+        <item>1.5x</item>
+        <item>2x</item>
+    </string-array>
+    <string-array name="arr_setting_india_locale_item_names">
+        <item>हिंदी</item>
+        <item>English</item>
+        <item>తెలుగు</item>
+        <item>தமிழ்</item>
+        <item>বাঙালি</item>
+        <item>मराठी</item>
+    </string-array>
+    <string-array name="arr_setting_india_locale_item_values">
+        <item>Hindi</item>
+        <item>English</item>
+        <item>Telugu</item>
+        <item>Tamil</item>
+        <item>Bengali</item>
+        <item>Marathi</item>
+    </string-array>
+    <string-array name="arr_setting_local_locale_item_names">
+        <item>简体中文</item>
+        <item>繁體中文</item>
+        <item>English</item>
+        <item>日本語</item>
+        <item>Deutsche</item>
+        <item>عربى</item>
+        <item>Español</item>
+        <item>Italiano</item>
+        <item>Melayu</item>
+        <item>한국어</item>
+        <item>فارسی</item>
+        <item>Türk</item>
+        <item>Tiếng Việt</item>
+        <item>русский</item>
+        <item>Français</item>
+        <item>Bahasa Indonesia</item>
+        <item>ไทย</item>
+        <item>Português</item>
+        <item>हिंदी</item>
+    </string-array>
+    <string-array name="arr_setting_local_locale_item_values">
+        <item>zh-Hans</item>
+        <item>zh-Hant</item>
+        <item>en</item>
+        <item>ja</item>
+        <item>de</item>
+        <item>ar</item>
+        <item>es</item>
+        <item>it</item>
+        <item>ms</item>
+        <item>ko</item>
+        <item>fa</item>
+        <item>tr</item>
+        <item>vi</item>
+        <item>ru</item>
+        <item>fr</item>
+        <item>id</item>
+        <item>th</item>
+        <item>pt</item>
+        <item>hi</item>
+    </string-array>
+    <string-array name="mark_text_array">
+        <item>0.25X</item>
+        <item>0.5X</item>
+        <item>0.75X</item>
+        <item>1X</item>
+        <item>2X</item>
+        <item>3X</item>
+        <item>4X</item>
+    </string-array>
+    <integer-array name="rc_reconnect_interval">
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>8</item>
+        <item>16</item>
+        <item>32</item>
+        <item>64</item>
+        <item>128</item>
+        <item>256</item>
+        <item>512</item>
+    </integer-array>
+    <string-array name="seekbar_array_pic_duration">
+        <item>0.1</item>
+        <item>30.0</item>
+        <item>60.0</item>
+    </string-array>
+    <integer-array name="speed_multiplied_by_100">
+        <item>25</item>
+        <item>50</item>
+        <item>75</item>
+        <item>100</item>
+        <item>125</item>
+        <item>150</item>
+        <item>200</item>
+    </integer-array>
+</resources>

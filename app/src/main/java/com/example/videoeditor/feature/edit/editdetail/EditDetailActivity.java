@@ -13,6 +13,7 @@ import androidx.viewbinding.ViewBinding;
 import com.example.videoeditor.R;
 import com.example.videoeditor.base.viewbinding.BaseActivityBinding;
 import com.example.videoeditor.databinding.ActivityEditDetailBinding;
+import com.example.videoeditor.feature.edit.TimelineFragment;
 import com.example.videoeditor.feature.edit.editdetail.editduration.EditDurationActivity;
 import com.example.videoeditor.feature.edit.editdetail.editsticker.EditStickerFragment;
 import com.example.videoeditor.feature.edit.editdetail.edittransition.EditTransitionActivity;
@@ -22,6 +23,7 @@ public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBi
 
     private EditStickerFragment editStickerFragment;
     private EditFilterFragment editFilterFragment;
+    private TimelineFragment timelineFragment;
     private Fragment currentFragment;
     private Fragment prevFragment;
 
@@ -104,12 +106,17 @@ public class EditDetailActivity extends BaseActivityBinding<ActivityEditDetailBi
     protected void initViews(Bundle bundle) {
         editStickerFragment = new EditStickerFragment();
         editFilterFragment = new EditFilterFragment();
+        timelineFragment = new TimelineFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.container, editStickerFragment)
-                .hide(editStickerFragment)
                 .add(R.id.container, editFilterFragment)
+                .add(R.id.container, timelineFragment)
+                .hide(editStickerFragment)
                 .hide(editFilterFragment)
+                .hide(timelineFragment)
                 .commitAllowingStateLoss();
+
+        showFragment(timelineFragment);
     }
 
     private void hideFragment(Fragment fragment) {

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap android:src="@drawable/splash" />
+    </item>
+    <item android:top="100.0dip">
+        <bitmap android:gravity="center|top" android:src="@drawable/vivavideo_splash_logo_n" />
+    </item>
+</layer-list>

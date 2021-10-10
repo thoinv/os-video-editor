@@ -25,6 +25,7 @@ public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
     private MusicFragment musicFragment;
     private EditEffectFragment effectFragment;
     private EditThemeFragment themeFragment;
+    private TimelineFragment timelineFragment;
     private Fragment currentFragment;
     private Fragment prevFragment;
 
@@ -118,6 +119,7 @@ public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
     protected void initViews(Bundle bundle) {
         binding.layoutToolbar.tvToolbarTitle.setText(R.string.edit);
         initFragments();
+        showFragment(timelineFragment);
     }
 
     private void initFragments() {
@@ -125,10 +127,13 @@ public class EditActivity extends BaseActivityBinding<ActivityEditBinding> {
         musicFragment = new MusicFragment();
         effectFragment = new EditEffectFragment();
         themeFragment = new EditThemeFragment();
+        timelineFragment = new TimelineFragment();
         fragmentTransaction
                 .add(R.id.container, musicFragment)
                 .add(R.id.container, effectFragment)
                 .add(R.id.container, themeFragment)
+                .add(R.id.container, timelineFragment)
+                .hide(timelineFragment)
                 .hide(musicFragment)
                 .hide(effectFragment)
                 .hide(themeFragment)

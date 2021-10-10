@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true" android:drawable="@drawable/app_younger_confirm_icon_select" />
+    <item android:state_selected="false" android:drawable="@drawable/app_younger_confirm_icon_nor" />
+    <item android:drawable="@drawable/app_younger_confirm_icon_nor" />
+</selector>

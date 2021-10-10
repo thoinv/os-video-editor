@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true" android:drawable="@drawable/comm_icon_priv_icon_changed" />
+    <item android:drawable="@drawable/comm_icon_publish_priv_icon_locked" />
+</selector>

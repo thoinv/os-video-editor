@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true" android:drawable="@drawable/comm_icon_whats_saver_pressed" />
+    <item android:state_selected="false" android:drawable="@drawable/comm_icon_whats_saver" />
+    <item android:drawable="@drawable/comm_icon_whats_saver" />
+</selector>

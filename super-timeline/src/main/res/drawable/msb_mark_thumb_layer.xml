@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval" android:useLevel="true">
+            <size android:height="24.0dip" android:width="24.0dip" />
+            <solid android:color="@color/veds_color_fill_blue_50" />
+            <stroke android:width="14.0dip" android:color="@color/veds_color_fill_blue_50" />
+        </shape>
+    </item>
+    <item android:left="7.0dip" android:top="7.0dip" android:right="7.0dip" android:bottom="7.0dip">
+        <shape android:shape="oval" android:useLevel="true">
+            <size android:height="10.0dip" android:width="10.0dip" />
+            <solid android:color="@color/veds_color_fill_white_0" />
+        </shape>
+    </item>
+</layer-list>
